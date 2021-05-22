@@ -31,12 +31,12 @@
 			<% site_results.each do |result| %>
 				<tr>
 					<td align="center">
-						<a href="<%= uri("history.cgi", q: result["link"]) %>"><img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= result["name"] %>" width="128" height="96" /></a>
+						<a href="<%= uri("history.cgi", q: result["link"]) %>"><img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= ERB::Util.html_escape result["name"] %>" width="128" height="96" /></a>
 					</td>
 					<td>
-						<a href="<%= uri("history.cgi", q: result["link"]) %>"><strong><%= result["name"] %></strong></a>
+						<a href="<%= uri("history.cgi", q: result["link"]) %>"><strong><%= ERB::Util.html_escape result["name"] %></strong></a>
 						<br>
-						<%= result["snippet"] %>
+						<%= ERB::Util.html_escape result["snippet"] %>
 						<br>
 						<font color="gray">
 							<small><%= result["capture"] %> <%= if result["capture"] == 1 then "capture" else "captures" end %> between <%= result["first_captured"] %> and <%= result["last_captured"] %></small>
