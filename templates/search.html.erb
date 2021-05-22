@@ -5,6 +5,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<title>Wayback Classic - Searching for “<%= query %>”</title>
+		<style type="text/css">
+			* { box-sizing: border-box; }
+			@media (max-width: 380px) {
+				#search_results img {
+					width: 64px;
+					height: 48px;
+				}
+			}
+		</style>
 	</head>
 	<body background="/images/background@0.5x.gif">
 		<h1><a href="/">Wayback Classic</a></h1>
@@ -13,23 +22,30 @@
 			<input type="submit" value="Look Up">
 		</form>
 		<h2>Search results for “<%= query %>”</h2>
-		<ul>
-		<% site_results.each do |result| %>
-			<li>
-				<a href="<%= uri("history.cgi", q: result["link"]) %>">
-					<%= result["name"] %>
-				</a>
-				<br>
-				<a href="<%= uri("history.cgi", q: result["link"]) %>">
-					<img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= result["name"] %>" />
-				</a>
-				<br>
-				<%= result["capture"] %> <%= if result["capture"] == 1 then "capture" else "captures" end %> between <%= result["first_captured"] %> and <%= result["last_captured"] %>
-				<br>
-				<%= result["snippet"] %>
-			</li>
-		<% end %>
-		</ul>
+		<table id="search_results" border="1" width="100%">
+			<thead>
+				<th>Image</th>
+				<th>Site Name & Information</th>
+			</thead>
+			<tbody>
+			<% site_results.each do |result| %>
+				<tr>
+					<td align="center">
+						<a href="<%= uri("history.cgi", q: result["link"]) %>"><img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= result["name"] %>" width="128" height="96" /></a>
+					</td>
+					<td>
+						<a href="<%= uri("history.cgi", q: result["link"]) %>"><strong><%= result["name"] %></strong></a>
+						<br>
+						<%= result["snippet"] %>
+						<br>
+						<font color="gray">
+							<small><%= result["capture"] %> <%= if result["capture"] == 1 then "capture" else "captures" end %> between <%= result["first_captured"] %> and <%= result["last_captured"] %></small>
+						</font>
+					</td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
 		<hr>
 		<p><small>Wayback Classic retrieves data from The Wayback Machine. The Wayback Machine is run by the <a href="//archive.org">Internet Archive</a>. They do amazing work preserving all sorts of things, including the websites you find here. You should consider <a href="//archive.org/donate/">donating</a> to them! Copyright &copy; 2021 Jessica Stokes. <a href="https://github.com/ticky/wayback-classic">Source code available on GitHub</a></small></p>
 		<a href="//web.archive.org/web/19970220020535/http://www.microsoft.com/ie/download/"><img src="/images/ie.gif" alt="Microsoft Internet Explorer" height="31" width="88"></a>
