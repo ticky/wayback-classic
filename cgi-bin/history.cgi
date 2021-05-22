@@ -25,7 +25,10 @@ begin
 
     query = cgi.params["q"].first
 
-	response = Net::HTTP.get_response uri("http://web.archive.org/cdx/search/cdx", url: query, output: "json", limit: 100)
+	response = Net::HTTP.get_response uri("http://web.archive.org/cdx/search/cdx",
+																				url: query,
+																				output: "json",
+																				limit: 100)
 
 	unless response.is_a?(Net::HTTPSuccess)
 		raise StandardError.new("Couldn't retrieve page history for this URL: #{response}")
