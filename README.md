@@ -1,6 +1,6 @@
 # Wayback Classic
 
-A frontend for the Wayback Machine which works on old browsers without robust JavaScript or CSS support
+A simple, CGI-based frontend for the Wayback Machine which works on old browsers without modern JavaScript or CSS support
 
 ## Why
 
@@ -11,3 +11,5 @@ Wayback Classic attempts to provide a fully-functional frontend for the Wayback 
 ## Notes
 
 This is built on both the [CDX API](https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server) (for retrieving lists of page snapshots), as well as the undocumented `__wb/search` API used by the Wayback Machine's own frontend to handle site search and determine if a site exists in the archive. More info about the site search can be found [in this blog post](http://blog.archive.org/2016/10/24/beta-wayback-machine-now-with-site-search/).
+
+Testing can be perfomed either by configuring a full web server, or by using `python3 -m http.server --cgi`. Note that Python's `http.server` doesn't respect any redirects produced by CGI scripts.
