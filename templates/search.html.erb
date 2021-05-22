@@ -1,15 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/transitional.dtd">
+"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<title>Wayback Classic - Searching for “<%= query %>”</title>
 	</head>
 	<body background="/images/background@0.5x.gif">
 		<h1><a href="/">Wayback Classic</a></h1>
 		<form action="/cgi-bin/lookup.cgi" method="get">
-			<input type="text" name="q" placeholder="Enter a URL or search terms" value="<%= query %>">
+			<label>URL or search terms: <input type="text" name="q" value="<%= query %>"></label>
 			<input type="submit" value="Look Up">
 		</form>
 		<h2>Search results for “<%= query %>”</h2>
@@ -19,13 +19,13 @@
 				<a href="<%= uri("history.cgi", q: result["link"]) %>">
 					<%= result["name"] %>
 				</a>
-				<br/>
+				<br>
 				<a href="<%= uri("history.cgi", q: result["link"]) %>">
 					<img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= result["name"] %>" />
 				</a>
-				<br />
+				<br>
 				<%= result["capture"] %> <%= if result["capture"] == 1 then "capture" else "captures" end %> between <%= result["first_captured"] %> and <%= result["last_captured"] %>
-				<br />
+				<br>
 				<%= result["snippet"] %>
 			</li>
 		<% end %>
