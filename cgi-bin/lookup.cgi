@@ -15,45 +15,45 @@ cgi = CGI.new
 require_relative 'lib/utils'
 
 begin
-	if cgi.params.keys != ["q"] || cgi.params["q"].first.empty?
-		raise StandardError.new("A query parameter must be provided")
-	end
+  if cgi.params.keys != ["q"] || cgi.params["q"].first.empty?
+    raise StandardError.new("A query parameter must be provided")
+  end
 
-    query = cgi.params["q"].first
+  query = cgi.params["q"].first
 
-	response = Net::HTTP.get_response uri("https://web.archive.org/__wb/search/host", q: query)
+  response = Net::HTTP.get_response uri("https://web.archive.org/__wb/search/host", q: query)
 
-	unless response.is_a?(Net::HTTPSuccess)
-		raise StandardError.new("Couldn't retrieve information about this URL")
-	end
+  unless response.is_a?(Net::HTTPSuccess)
+    raise StandardError.new("Couldn't retrieve information about this URL")
+  end
 
-	data = JSON.parse response.body
+  data = JSON.parse response.body
 
-	if data["isUrl"]
-		# Redirect to History page
-		redirect_uri = uri "history.cgi", q: query
+  if data["isUrl"]
+    # Redirect to History page
+    redirect_uri = uri "history.cgi", q: query
 
-		cgi.out "type" => "text/html",
-				"charset" => "UTF-8",
-				"status" => "REDIRECT",
-				"location" => redirect_uri do
-			render "redirect.html", redirect_uri: redirect_uri
-		end
-	else
-		# Redirect to Search page
-		redirect_uri = uri "search.cgi", q: query
+    cgi.out "type" => "text/html",
+        "charset" => "UTF-8",
+        "status" => "REDIRECT",
+        "location" => redirect_uri do
+      render "redirect.html", redirect_uri: redirect_uri
+    end
+  else
+    # Redirect to Search page
+    redirect_uri = uri "search.cgi", q: query
 
-		cgi.out "type" => "text/html",
-				"charset" => "UTF-8",
-				"status" => "REDIRECT",
-				"location" => redirect_uri do
-			render "redirect.html", redirect_uri: redirect_uri
-		end
-	end
+    cgi.out "type" => "text/html",
+        "charset" => "UTF-8",
+        "status" => "REDIRECT",
+        "location" => redirect_uri do
+      render "redirect.html", redirect_uri: redirect_uri
+    end
+  end
 rescue => error
-	cgi.out "type" => "text/html",
-			"charset" => "UTF-8",
-			"status" => "BAD_REQUEST" do
-		render "error.html", error: error
-	end
+  cgi.out "type" => "text/html",
+      "charset" => "UTF-8",
+      "status" => "BAD_REQUEST" do
+    render "error.html", error: error
+  end
 end

@@ -15,29 +15,29 @@ cgi = CGI.new
 require_relative 'lib/utils'
 
 begin
-	if cgi.params.keys != ["q"] || cgi.params["q"].first.empty?
-		raise StandardError.new("A query parameter must be provided")
-	end
+  if cgi.params.keys != ["q"] || cgi.params["q"].first.empty?
+    raise StandardError.new("A query parameter must be provided")
+  end
 
     query = cgi.params["q"].first
 
-	response = Net::HTTP.get_response uri("https://web.archive.org/__wb/search/anchor", q: query)
+  response = Net::HTTP.get_response uri("https://web.archive.org/__wb/search/anchor", q: query)
 
-	unless response.is_a?(Net::HTTPSuccess)
-		raise StandardError.new("Couldn't retrieve results for these keywords")
-	end
+  unless response.is_a?(Net::HTTPSuccess)
+    raise StandardError.new("Couldn't retrieve results for these keywords")
+  end
 
-	site_results = JSON.parse response.body
+  site_results = JSON.parse response.body
 
-	cgi.out "type" => "text/html",
-			"charset" => "UTF-8",
-			"status" => "OK" do
-		render "search.html", query: query, site_results: site_results
-	end
+  cgi.out "type" => "text/html",
+      "charset" => "UTF-8",
+      "status" => "OK" do
+    render "search.html", query: query, site_results: site_results
+  end
 rescue => error
-	cgi.out "type" => "text/html",
-			"charset" => "UTF-8",
-			"status" => "BAD_REQUEST" do
-		render "error.html", error: error
-	end
+  cgi.out "type" => "text/html",
+      "charset" => "UTF-8",
+      "status" => "BAD_REQUEST" do
+    render "error.html", error: error
+  end
 end
