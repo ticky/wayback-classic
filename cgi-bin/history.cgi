@@ -12,10 +12,6 @@ require 'net/http'
 
 cgi = CGI.new
 
-# cgi.out "type" => "text/plain" do
-# 	JSON.dump ENV.to_h
-# end
-
 require_relative 'lib/utils'
 
 begin
