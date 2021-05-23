@@ -10,13 +10,11 @@ require 'erb'
 require 'json'
 require 'net/http'
 
-cgi = CGI.new
-
 require_relative 'lib/utils'
 
-begin
-  if cgi.params.keys != ["q"] || cgi.params["q"].first.empty?
-    raise StandardError.new("A query parameter must be provided")
+CGI.new.tap do |cgi|
+  if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.empty?
+    raise StandardError.new("A `q` parameter must be supplied, and no other parameters are accepted")
   end
 
   query = cgi.params["q"].first
@@ -34,9 +32,9 @@ begin
     redirect_uri = uri "history.cgi", q: query
 
     cgi.out "type" => "text/html",
-        "charset" => "UTF-8",
-        "status" => "REDIRECT",
-        "location" => redirect_uri do
+            "charset" => "UTF-8",
+            "status" => "REDIRECT",
+            "location" => redirect_uri do
       render "redirect.html", redirect_uri: redirect_uri
     end
   else
@@ -44,16 +42,16 @@ begin
     redirect_uri = uri "search.cgi", q: query
 
     cgi.out "type" => "text/html",
-        "charset" => "UTF-8",
-        "status" => "REDIRECT",
-        "location" => redirect_uri do
+            "charset" => "UTF-8",
+            "status" => "REDIRECT",
+            "location" => redirect_uri do
       render "redirect.html", redirect_uri: redirect_uri
     end
   end
 rescue => error
   cgi.out "type" => "text/html",
-      "charset" => "UTF-8",
-      "status" => "BAD_REQUEST" do
+          "charset" => "UTF-8",
+          "status" => "BAD_REQUEST" do
     render "error.html", error: error
   end
 end

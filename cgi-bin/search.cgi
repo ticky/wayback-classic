@@ -10,16 +10,14 @@ require 'erb'
 require 'json'
 require 'net/http'
 
-cgi = CGI.new
-
 require_relative 'lib/utils'
 
-begin
-  if cgi.params.keys != ["q"] || cgi.params["q"].first.empty?
-    raise StandardError.new("A query parameter must be provided")
+CGI.new.tap do |cgi|
+  if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.empty?
+    raise StandardError.new("A `q` parameter must be supplied, and no other parameters are accepted")
   end
 
-    query = cgi.params["q"].first
+  query = cgi.params["q"].first
 
   response = Net::HTTP.get_response uri("https://web.archive.org/__wb/search/anchor", q: query)
 
@@ -30,14 +28,14 @@ begin
   site_results = JSON.parse response.body
 
   cgi.out "type" => "text/html",
-      "charset" => "UTF-8",
-      "status" => "OK" do
+          "charset" => "UTF-8",
+          "status" => "OK" do
     render "search.html", query: query, site_results: site_results
   end
 rescue => error
   cgi.out "type" => "text/html",
-      "charset" => "UTF-8",
-      "status" => "BAD_REQUEST" do
+          "charset" => "UTF-8",
+          "status" => "BAD_REQUEST" do
     render "error.html", error: error
   end
 end
