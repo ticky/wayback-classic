@@ -29,7 +29,7 @@ CGI.new.tap do |cgi|
 
   if data["isUrl"]
     # Redirect to History page
-    redirect_uri = uri "history.cgi", q: query
+    redirect_uri = uri "/cgi-bin/history.cgi", q: query
 
     cgi.out "type" => "text/html",
             "charset" => "UTF-8",
@@ -39,7 +39,7 @@ CGI.new.tap do |cgi|
     end
   else
     # Redirect to Search page
-    redirect_uri = uri "search.cgi", q: query
+    redirect_uri = uri "/cgi-bin/search.cgi", q: query
 
     cgi.out "type" => "text/html",
             "charset" => "UTF-8",
