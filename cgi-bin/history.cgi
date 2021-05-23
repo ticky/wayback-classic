@@ -38,7 +38,7 @@ CGI.new.tap do |cgi|
   # cgi.out("text/plain") { JSON.dump date_index }
   # exit
 
-  if date.nil? || date.empty?
+  if date.nil? || date.empty? || date.length < 6
     # List applicable years
 
     cgi.out "type" => "text/html",

@@ -4,17 +4,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Wayback Classic - <%= DateTime.strptime(date, "%Y%m").strftime("%B %Y") %> at “<%= query %>”</title>
+    <title>Wayback Classic - <%= DateTime.strptime(date, "%Y%m").strftime("%B %Y") %> at “<%= ERB::Util.html_escape query %>”</title>
   </head>
   <body background="/images/background@0.5x.gif">
     <h1><a href="/">Wayback Classic</a></h1>
     <form action="/cgi-bin/lookup.cgi" method="get">
-      <label>URL or search terms: <input type="text" name="q" value="<%= query %>"></label>
+      <label>URL or search terms: <input type="text" name="q" value="<%= ERB::Util.html_escape query %>"></label>
       <input type="submit" value="Look Up">
     </form>
-    <h2><%= DateTime.strptime(date, "%Y%m").strftime("%B %Y") %> at “<%= query %>”</h2>
+    <hr>
+    <h2><%= DateTime.strptime(date, "%Y%m").strftime("%B %Y") %> at “<%= ERB::Util.html_escape query %>”</h2>
     <form action="/cgi-bin/history.cgi" method="get">
-      <input type="hidden" name="q" value="<%= query %>">
+      <input type="hidden" name="q" value="<%= ERB::Util.html_escape query %>">
       <select name="date">
       <% date_index.each do |year, index_item| %>
         <optgroup label="<%= year %>">
@@ -32,11 +33,9 @@
     <ul>
     <% cdx_results.each do |cdx_result| %>
       <li>
-        <a href="//web.archive.org/web/<%= cdx_result["timestamp"] %>if_/<%= cdx_result["original"] %>">
-          <%= cdx_result["statuscode"] %> <%= cdx_result["datetime"].to_s %>
-        </a>
+        <a href="//web.archive.org/web/<%= cdx_result["timestamp"] %>if_/<%= cdx_result["original"] %>"><%= cdx_result["datetime"].strftime("%B %e, %r") %></a>
         <br>
-        <%= filesize cdx_result["length"] %>, Content-type: <%= cdx_result["mimetype"] %>
+        <%= filesize cdx_result["length"] %>, Status: <%= cdx_result["statuscode"] || "Unknown" %>, Content-type: <%= cdx_result["mimetype"] %>
       </li>
     <% end %>
     </ul>

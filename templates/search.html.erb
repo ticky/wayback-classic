@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Wayback Classic - Searching for “<%= query %>”</title>
+    <title>Wayback Classic - Searching for “<%= ERB::Util.html_escape query %>”</title>
     <style type="text/css">
       * { box-sizing: border-box; }
       @media (max-width: 380px) {
@@ -18,10 +18,11 @@
   <body background="/images/background@0.5x.gif">
     <h1><a href="/">Wayback Classic</a></h1>
     <form action="/cgi-bin/lookup.cgi" method="get">
-      <label>URL or search terms: <input type="text" name="q" value="<%= query %>"></label>
+      <label>URL or search terms: <input type="text" name="q" value="<%= ERB::Util.html_escape query %>"></label>
       <input type="submit" value="Look Up">
     </form>
-    <h2>Search results for “<%= query %>”</h2>
+    <hr>
+    <h2>Search results for “<%= ERB::Util.html_escape query %>”</h2>
     <table id="search_results" border="1" width="100%">
       <thead>
         <th>Image</th>
