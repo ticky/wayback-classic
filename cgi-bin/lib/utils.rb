@@ -29,3 +29,11 @@ def filesize(size)
 
   '%.0f %s' % [size.to_f / 1024 ** exp, units[exp]]
 end
+
+def quotify(value, encoding_override=nil)
+  if encoding_override
+    "\"#{value}\""
+  else
+    "“#{value}”"
+  end
+end

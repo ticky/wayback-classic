@@ -11,7 +11,10 @@ require 'json'
 require 'net/http'
 
 require_relative 'lib/cdx'
+require_relative 'lib/encoding'
 require_relative 'lib/utils'
+
+utf8, encoding_override = detect_client_encoding
 
 CGI.new.tap do |cgi|
   if cgi.params.keys - ["q", "date"] != [] || cgi.params["q"]&.first.empty?
@@ -39,17 +42,12 @@ CGI.new.tap do |cgi|
   # exit
 
   if date.nil? || date.empty? || date.length < 6
-    # List applicable years
-
     cgi.out "type" => "text/html",
             "charset" => "UTF-8",
             "status" => "OK" do
       render "history/index.html", query: query, date_index: date_index
     end
   else
-    # TODO: Use this result to create a list of years,
-    # and based on the presence of a year parameter,
-    # generate a yearly calendar view
     response = Net::HTTP.get_response uri("http://web.archive.org/cdx/search/cdx",
                                           url: query,
                                           output: "json",

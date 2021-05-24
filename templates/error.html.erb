@@ -8,10 +8,11 @@
   </head>
   <body background="/images/background@0.5x.gif">
     <center><h1>Error</h1></center>
-    <p><center><%= error %></center></p>
+    <p><center><%= error.class %>: <%= error %></center></p>
     <hr><center><a href="/">wayback-classic</a></center>
     <form action="/cgi-bin/lookup" method="get">
       <label>URL or search terms: <input type="text" name="q"></label>
+      <input type="hidden" name="utf8" value="✓">
       <input type="submit" value="Look Up">
     </form>
     <hr>

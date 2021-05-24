@@ -10,7 +10,10 @@ require 'erb'
 require 'json'
 require 'net/http'
 
+require_relative 'lib/encoding'
 require_relative 'lib/utils'
+
+utf8, encoding_override = detect_client_encoding
 
 CGI.new.tap do |cgi|
   if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.empty?
