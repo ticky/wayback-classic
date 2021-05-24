@@ -8,7 +8,7 @@
 require 'cgi'
 require 'date'
 require 'json'
-require 'net/http'
+require 'open-uri'
 
 require_relative 'lib/cdx'
 require_relative 'lib/encoding'
@@ -26,20 +26,18 @@ CGI.new.tap do |cgi|
 
   date_index = begin
     # TODO: Cache this
-    response = Net::HTTP.get_response uri("http://web.archive.org/cdx/search/cdx",
-                                          url: query,
-                                          output: "json",
-                                          collapse: "timestamp:6")
+    response = URI.open uri("http://web.archive.org/cdx/search/cdx",
+                            url: query,
+                            output: "json",
+                            collapse: "timestamp:6"),
+                        "User-Agent" => USER_AGENT
 
-    unless response.is_a?(Net::HTTPSuccess)
-      raise StandardError.new("Couldn't retrieve page history for this URL: #{response.body}")
+    unless response.status[0][0] == "2"
+      raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
     end
 
-    cdx_objectify(JSON.parse(response.body)).group_by { |index_item| index_item["datetime"].year }
+    cdx_objectify(JSON.parse(response.read)).group_by { |index_item| index_item["datetime"].year }
   end
-
-  # cgi.out("text/plain") { JSON.dump date_index }
-  # exit
 
   if date.nil? || date.empty? || date.length < 6
     cgi.out "type" => "text/html",
@@ -48,18 +46,19 @@ CGI.new.tap do |cgi|
       render "history/index.html", query: query, date_index: date_index
     end
   else
-    response = Net::HTTP.get_response uri("http://web.archive.org/cdx/search/cdx",
-                                          url: query,
-                                          output: "json",
-                                          from: date,
-                                          to: date,
-                                          collapse: "digest")
+    response = URI.open uri("http://web.archive.org/cdx/search/cdx",
+                            url: query,
+                            output: "json",
+                            from: date,
+                            to: date,
+                            collapse: "digest"),
+                        "User-Agent" => USER_AGENT
 
-    unless response.is_a?(Net::HTTPSuccess)
-      raise StandardError.new("Couldn't retrieve page history for this URL: #{response.body}")
+    unless response.status[0] == "2"
+      raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
     end
 
-    cdx_results = cdx_objectify JSON.parse(response.body)
+    cdx_results = cdx_objectify JSON.parse(response.read)
 
     cgi.out "type" => "text/html",
             "charset" => "UTF-8",

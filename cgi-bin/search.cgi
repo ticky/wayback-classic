@@ -8,7 +8,7 @@
 require 'cgi'
 require 'erb'
 require 'json'
-require 'net/http'
+require 'open-uri'
 
 require_relative 'lib/encoding'
 require_relative 'lib/utils'
@@ -22,13 +22,14 @@ CGI.new.tap do |cgi|
 
   query = cgi.params["q"].first
 
-  response = Net::HTTP.get_response uri("https://web.archive.org/__wb/search/anchor", q: query)
+  response = URI.open uri("https://web.archive.org/__wb/search/anchor", q: query),
+                      "User-Agent" => USER_AGENT
 
-  unless response.is_a?(Net::HTTPSuccess)
+  unless response.status[0][0] == "2"
     raise StandardError.new("Couldn't retrieve results for these keywords")
   end
 
-  site_results = JSON.parse response.body
+  site_results = JSON.parse response.read
 
   cgi.out "type" => "text/html",
           "charset" => "UTF-8",

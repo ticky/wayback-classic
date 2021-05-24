@@ -8,7 +8,7 @@
 require 'cgi'
 require 'erb'
 require 'json'
-require 'net/http'
+require 'open-uri'
 
 require_relative 'lib/encoding'
 require_relative 'lib/utils'
@@ -22,16 +22,16 @@ CGI.new.tap do |cgi|
 
   query = cgi.params["q"].first
 
-  response = Net::HTTP.get_response uri("https://web.archive.org/__wb/search/host", q: query)
+  response = URI.open uri("https://web.archive.org/__wb/search/host", q: query),
+                      "User-Agent" => USER_AGENT
 
-  unless response.is_a?(Net::HTTPSuccess)
+  unless response.status[0][0] == "2"
     raise StandardError.new("Couldn't retrieve information about this URL")
   end
 
-  data = JSON.parse response.body
+  data = JSON.parse response.read
 
   if data["isUrl"]
-    # Redirect to History page
     redirect_uri = uri "/cgi-bin/history.cgi", q: query, utf8: utf8
 
     cgi.out "type" => "text/html",
@@ -41,7 +41,6 @@ CGI.new.tap do |cgi|
       render "redirect.html", redirect_uri: redirect_uri
     end
   else
-    # Redirect to Search page
     redirect_uri = uri "/cgi-bin/search.cgi", q: query, utf8: utf8
 
     cgi.out "type" => "text/html",
