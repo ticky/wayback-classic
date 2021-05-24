@@ -54,7 +54,7 @@ CGI.new.tap do |cgi|
                             collapse: "digest"),
                         "User-Agent" => USER_AGENT
 
-    unless response.status[0] == "2"
+    unless response.status[0][0] == "2"
       raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
     end
 
