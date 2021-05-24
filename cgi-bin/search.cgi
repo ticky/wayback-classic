@@ -10,7 +10,7 @@ require 'erb'
 require 'json'
 require 'open-uri'
 
-require_relative 'lib/bugsnag'
+require_relative 'lib/error_reporting'
 require_relative 'lib/encoding'
 require_relative 'lib/utils'
 require_relative 'lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_TEMP"] == "true"
