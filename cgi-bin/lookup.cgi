@@ -12,6 +12,7 @@ require 'open-uri'
 
 require_relative 'lib/encoding'
 require_relative 'lib/utils'
+require_relative 'lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_TEMP"] == "true"
 
 utf8, encoding_override = detect_client_encoding
 
