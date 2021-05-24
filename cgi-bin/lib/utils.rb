@@ -29,7 +29,3 @@ def filesize(size)
 
   '%.0f %s' % [size.to_f / 1024 ** exp, units[exp]]
 end
-
-def month_index_to_name(index)
-  ["N/A", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][index]
-end
