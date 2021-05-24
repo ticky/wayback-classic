@@ -1,7 +1,5 @@
 require 'erb'
 
-USER_AGENT = "wayback-classic.nfshost.com/0.1 (wayback@jessicastokes.net) Ruby/#{RUBY_VERSION}"
-
 def render(template, binding = {})
   path = File.join(File.expand_path(File.dirname(__FILE__)), "../../templates/#{template}.erb")
   erb = ERB.new(File.read(path))
