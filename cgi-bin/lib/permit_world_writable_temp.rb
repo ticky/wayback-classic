@@ -17,6 +17,7 @@ class Dir
     tmp = nil
     [ENV['TMPDIR'], ENV['TMP'], ENV['TEMP'], @@systmpdir, '/tmp', '.'].each do |dir|
       next if !dir
+
       dir = File.expand_path(dir)
       if stat = File.stat(dir) and stat.directory? and stat.writable?
         tmp = dir
@@ -24,6 +25,7 @@ class Dir
       end rescue nil
     end
     raise ArgumentError, "could not find a temporary directory" unless tmp
+
     tmp
   end
 end

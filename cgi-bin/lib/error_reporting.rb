@@ -1,7 +1,7 @@
 def catch_exceptions(cgi)
   yield
 rescue => error
-  STDERR.puts JSON.dump error: {
+  STDERR.puts JSON.dump(error: {
                           class: error.class.name,
                           message: error.message,
                           backtrace: error.backtrace
@@ -9,9 +9,9 @@ rescue => error
                         request: {
                           env: ENV.select do |key, value|
                             key.start_with?("HTTP_", "PATH_", "CONTENT_", "REMOTE_") ||
-                            %w(QUERY_STRING REQUEST_METHOD).include?(key)
+                              %w(QUERY_STRING REQUEST_METHOD).include?(key)
                           end
-                        }
+                        })
 
   error
 end
