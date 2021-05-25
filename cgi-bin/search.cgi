@@ -6,7 +6,6 @@
 # find relevant archived sites for a given set of keywords.
 
 require 'cgi'
-require 'erb'
 require 'json'
 require 'open-uri'
 

@@ -6,7 +6,6 @@
 # then redirects to the appropriate script to show results to the user
 
 require 'cgi'
-require 'erb'
 require 'json'
 require 'open-uri'
 
