@@ -44,7 +44,12 @@ CGI.new.tap do |cgi|
       cdx_results = CDX.objectify response.read
 
       if cdx_results.any?
-        scheme = (ENV["REQUEST_SCHEME"] || ENV["REQUEST_URI"] || "http").split(":").first
+        # NearlyFreeSpeech only exposes this as ENV["HTTPS"]
+        scheme = if ENV["HTTPS"] == "on"
+                   "https"
+                 else
+                   ENV["REQUEST_URI"]&.split(":").first || "http"
+                 end
 
         redirect_uri = "#{scheme}://web.archive.org/web/#{cdx_results.first["timestamp"]}if_/#{cdx_results.first["original"]}"
 
