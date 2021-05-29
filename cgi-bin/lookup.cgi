@@ -7,12 +7,12 @@
 
 require 'cgi'
 require 'json'
-require 'open-uri'
 
-require_relative 'lib/error_reporting'
 require_relative 'lib/encoding'
-require_relative 'lib/utils'
+require_relative 'lib/error_reporting'
 require_relative 'lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_TEMP"] == "true"
+require_relative 'lib/utils'
+require_relative 'lib/web_client'
 
 utf8, encoding_override = detect_client_encoding
 
@@ -24,8 +24,7 @@ CGI.new.tap do |cgi|
 
     query = cgi.params["q"].first
 
-    response = URI.open uri("https://web.archive.org/__wb/search/host", q: query),
-                        "User-Agent" => USER_AGENT
+    response = WebClient.open uri("https://web.archive.org/__wb/search/host", q: query)
 
     unless response.status[0][0] == "2"
       raise StandardError.new("Couldn't retrieve information about this URL")

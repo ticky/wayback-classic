@@ -8,13 +8,13 @@
 require 'cgi'
 require 'date'
 require 'json'
-require 'open-uri'
 
-require_relative 'lib/error_reporting'
 require_relative 'lib/cdx'
 require_relative 'lib/encoding'
-require_relative 'lib/utils'
+require_relative 'lib/error_reporting'
 require_relative 'lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_TEMP"] == "true"
+require_relative 'lib/utils'
+require_relative 'lib/web_client'
 
 utf8, encoding_override = detect_client_encoding
 
@@ -28,12 +28,10 @@ CGI.new.tap do |cgi|
     date = cgi.params["date"]&.first
 
     date_index = begin
-      # TODO: Cache this
-      response = URI.open uri("http://web.archive.org/cdx/search/cdx",
-                              url: query,
-                              output: "json",
-                              collapse: "timestamp:6"),
-                          "User-Agent" => USER_AGENT
+      response = WebClient.open uri("http://web.archive.org/cdx/search/cdx",
+                                    url: query,
+                                    output: "json",
+                                    collapse: "timestamp:6")
 
       unless response.status[0][0] == "2"
         raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
@@ -49,13 +47,12 @@ CGI.new.tap do |cgi|
         render "history/index.html", query: query, date_index: date_index
       end
     else
-      response = URI.open uri("http://web.archive.org/cdx/search/cdx",
-                              url: query,
-                              output: "json",
-                              from: date,
-                              to: date,
-                              collapse: "digest"),
-                          "User-Agent" => USER_AGENT
+      response = WebClient.open uri("http://web.archive.org/cdx/search/cdx",
+                                    url: query,
+                                    output: "json",
+                                    from: date,
+                                    to: date,
+                                    collapse: "digest")
 
       unless response.status[0][0] == "2"
         raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
