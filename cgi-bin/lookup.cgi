@@ -14,7 +14,7 @@ require_relative 'lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_T
 require_relative 'lib/utils'
 require_relative 'lib/web_client'
 
-utf8, encoding_override = detect_client_encoding
+legacy_encoding = LegacyClientEncoding.detect
 
 CGI.new.tap do |cgi|
   ErrorReporting.catch_and_respond(cgi) do
@@ -24,7 +24,7 @@ CGI.new.tap do |cgi|
 
     query = cgi.params["q"].first
 
-    response = WebClient.open uri("https://archive.org/__wb/search/host", q: query)
+    response = WebClient.open uri("https://web.archive.org/__wb/search/host", q: query)
 
     # TODO: This doesn't actually work with this HTTP client
     unless response.status[0][0] == "2"
@@ -34,7 +34,7 @@ CGI.new.tap do |cgi|
     data = JSON.parse response.read
 
     if data["isUrl"]
-      redirect_uri = uri "/cgi-bin/history.cgi", q: query, utf8: utf8
+      redirect_uri = uri "/cgi-bin/history.cgi", q: query, utf8: legacy_encoding.utf8
 
       cgi.out "type" => "text/html",
               "charset" => "UTF-8",
@@ -43,7 +43,7 @@ CGI.new.tap do |cgi|
         render "redirect.html", redirect_uri: redirect_uri
       end
     else
-      redirect_uri = uri "/cgi-bin/search.cgi", q: query, utf8: utf8
+      redirect_uri = uri "/cgi-bin/search.cgi", q: query, utf8: legacy_encoding.utf8
 
       cgi.out "type" => "text/html",
               "charset" => "UTF-8",

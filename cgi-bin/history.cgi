@@ -16,7 +16,7 @@ require_relative 'lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_T
 require_relative 'lib/utils'
 require_relative 'lib/web_client'
 
-utf8, encoding_override = detect_client_encoding
+legacy_encoding = LegacyClientEncoding.detect
 
 CGI.new.tap do |cgi|
   ErrorReporting.catch_and_respond(cgi) do

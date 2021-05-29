@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Wayback Classic - Date index for URL <%= ERB::Util.html_escape quotify(query, encoding_override) %></title>
+    <title>Wayback Classic - Date index for URL <%= ERB::Util.html_escape quotify(query, legacy_encoding.encoding_override) %></title>
   </head>
   <body background="/images/background@0.5x.gif">
     <h1><a href="/">Wayback Classic</a></h1>
@@ -14,7 +14,7 @@
       <input type="submit" value="Look Up">
     </form>
     <hr>
-    <h2>Date index for URL <%= ERB::Util.html_escape quotify(query, encoding_override) %></h2>
+    <h2>Date index for URL <%= ERB::Util.html_escape quotify(query, legacy_encoding.encoding_override) %></h2>
     <% if date_index.any? %>
     <table border="1" width="100%">
       <tbody>
@@ -24,7 +24,7 @@
           <td valign="top">
           <% index_item.each do |month_item| %>
             <% date = month_item["datetime"].strftime("%Y%m") %>
-            <a href="<%= uri("history.cgi", q: query, date: date, utf8: utf8) %>"><%= month_item["datetime"].strftime("%B") %></a>
+            <a href="<%= uri("history.cgi", q: query, date: date, utf8: legacy_encoding.utf8) %>"><%= month_item["datetime"].strftime("%B") %></a>
           <% end %>
           </td>
         </tr>

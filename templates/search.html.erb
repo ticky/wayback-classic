@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Wayback Classic - Searching for <%= ERB::Util.html_escape quotify(query, encoding_override) %></title>
+    <title>Wayback Classic - Searching for <%= ERB::Util.html_escape quotify(query, legacy_encoding.encoding_override) %></title>
     <style type="text/css">
       * { box-sizing: border-box; }
       @media (max-width: 380px) {
@@ -23,11 +23,11 @@
       <input type="submit" value="Look Up">
     </form>
     <hr>
-    <% if encoding_override %>
-    <p><font color="gray"><strong>Note</strong>: Your browser is not honouring the text encoding for this page. Wayback Classic is attempting to provide this page in the <%= encoding_override %> encoding it appears to require. If something looks wrong, please send us the current URL of this page. You can also remove the <code>utf8=</code> parameter from the URL to turn this off, but some content may appear garbled.</font></p>
+    <% if legacy_encoding.encoding_override %>
+    <p><font color="gray"><strong>Note</strong>: Your browser is not honouring the text encoding for this page. Wayback Classic is attempting to provide this page in the <%= legacy_encoding.encoding_override %> encoding it appears to require. If something looks wrong, please send us the current URL of this page. You can also remove the <code>utf8=</code> parameter from the URL to turn this off, but some content may appear garbled.</font></p>
     <hr>
     <% end %>
-    <h2>Search results for <%= ERB::Util.html_escape quotify(query, encoding_override) %></h2>
+    <h2>Search results for <%= ERB::Util.html_escape quotify(query, legacy_encoding.encoding_override) %></h2>
     <% if site_results.any? %>
     <table id="search_results" border="1" width="100%">
       <thead>
@@ -38,13 +38,13 @@
       <% site_results.each do |result| %>
         <tr>
           <td align="center">
-            <a href="<%= uri("history.cgi", q: result["link"], utf8: utf8) %>"><img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= ERB::Util.html_escape result["name"] %>" width="128" height="96" /></a>
+            <a href="<%= uri("history.cgi", q: result["link"], utf8: legacy_encoding.utf8) %>"><img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= ERB::Util.html_escape result["name"] %>" width="128" height="96" /></a>
           </td>
           <td>
-            <a href="<%= uri("history.cgi", q: result["link"], utf8: utf8) %>"><strong><%= ERB::Util.html_escape result["name"] %></strong></a>
+            <a href="<%= uri("history.cgi", q: result["link"], utf8: legacy_encoding.utf8) %>"><strong><%= ERB::Util.html_escape result["name"] %></strong></a>
             <br>
-            <% snippet = if encoding_override
-                           result["snippet"].encode(encoding_override, undef: :replace).force_encoding("UTF-8")
+            <% snippet = if legacy_encoding.encoding_override
+                           result["snippet"].encode(legacy_encoding.encoding_override, undef: :replace).force_encoding("UTF-8")
                          else
                            result["snippet"]
                          end %>
