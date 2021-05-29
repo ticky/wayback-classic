@@ -43,9 +43,13 @@
                            result["snippet"]
                          end %><%= ERB::Util.html_escape snippet %>
             <br>
-            <font color="gray">
-              <small><%= number_formatter result["capture"] %> <%= if result["capture"] == 1 then "capture" else "captures" end %> between <%= result["first_captured"] %> and <%= result["last_captured"] %></small>
-            </font>
+            <small>
+              <font color="gray">
+                <%= number_formatter result["capture"] %> <%= if result["capture"] == 1 then "capture" else "captures" end %> between <%= result["first_captured"] %> and <%= result["last_captured"] %>
+              </font>
+              <br>
+              Jump to: <a href="<%= ERB::Util.html_escape uri("history.cgi", q: result["link"], date: "earliest", utf8: legacy_encoding.utf8) %>">Earliest</a>, <a href="<%= ERB::Util.html_escape uri("history.cgi", q: result["link"], date: "latest", utf8: legacy_encoding.utf8) %>">Latest</a>
+            </small>
           </td>
         </tr>
       <% end %>

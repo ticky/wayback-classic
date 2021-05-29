@@ -41,15 +41,17 @@ CGI.new.tap do |cgi|
               "location" => redirect_uri do
         render "redirect.html", redirect_uri: redirect_uri
       end
-    else
-      redirect_uri = uri "/cgi-bin/search.cgi", q: query, utf8: legacy_encoding.utf8
 
-      cgi.out "type" => "text/html",
-              "charset" => "UTF-8",
-              "status" => "REDIRECT",
-              "location" => redirect_uri do
-        render "redirect.html", redirect_uri: redirect_uri
-      end
+      return
+    end
+
+    redirect_uri = uri "/cgi-bin/search.cgi", q: query, utf8: legacy_encoding.utf8
+
+    cgi.out "type" => "text/html",
+            "charset" => "UTF-8",
+            "status" => "REDIRECT",
+            "location" => redirect_uri do
+      render "redirect.html", redirect_uri: redirect_uri
     end
   end
 end
