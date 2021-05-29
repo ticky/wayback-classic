@@ -6,8 +6,6 @@
 # a list of snapshots for the given URL.
 
 require 'cgi'
-require 'date'
-require 'json'
 
 require_relative 'lib/cdx'
 require_relative 'lib/encoding'
