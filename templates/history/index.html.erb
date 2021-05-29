@@ -15,6 +15,7 @@
     </form>
     <hr>
     <h2>Date index for URL <%= ERB::Util.html_escape quotify(query, encoding_override) %></h2>
+    <% if date_index.any? %>
     <table border="1" width="100%">
       <tbody>
       <% date_index.each do |year, index_item| %>
@@ -30,6 +31,9 @@
       <% end %>
       </tbody>
     </table>
+    <% else %>
+    <p>This URL has not been archived</p>
+    <% end %>
     <hr>
     <p><small>Wayback Classic retrieves data from The Wayback Machine. The Wayback Machine is run by the <a href="//archive.org">Internet Archive</a>. They do amazing work preserving all sorts of things, including the websites you find here. You should consider <a href="//archive.org/donate/">donating</a> to them! Copyright &copy; 2021 Jessica Stokes. <a href="https://github.com/ticky/wayback-classic">Source code available on GitHub</a></small></p>
     <a href="//web.archive.org/web/19970220020535/http://www.microsoft.com/ie/download/"><img border="0" src="/images/ie.gif" alt="Microsoft Internet Explorer" height="31" width="88"></a>

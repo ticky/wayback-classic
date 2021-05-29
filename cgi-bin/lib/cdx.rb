@@ -1,6 +1,6 @@
 def cdx_objectify(data)
   heading = data[0]
-  rows = data[1..-1]
+  rows = data[1..-1] || []
 
   rows.map do |row|
     hash_row = {}

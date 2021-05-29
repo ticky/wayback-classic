@@ -28,6 +28,7 @@
     <hr>
     <% end %>
     <h2>Search results for <%= ERB::Util.html_escape quotify(query, encoding_override) %></h2>
+    <% if site_results.any? %>
     <table id="search_results" border="1" width="100%">
       <thead>
         <th>Image</th>
@@ -57,6 +58,9 @@
       <% end %>
       </tbody>
     </table>
+    <% else %>
+    <p>No results were found for these keywords</p>
+    <% end %>
     <hr>
     <p><small>Wayback Classic retrieves data from The Wayback Machine. The Wayback Machine is run by the <a href="//archive.org">Internet Archive</a>. They do amazing work preserving all sorts of things, including the websites you find here. You should consider <a href="//archive.org/donate/">donating</a> to them! Copyright &copy; 2021 Jessica Stokes. <a href="https://github.com/ticky/wayback-classic">Source code available on GitHub</a></small></p>
     <a href="//web.archive.org/web/19970220020535/http://www.microsoft.com/ie/download/"><img border="0" src="/images/ie.gif" alt="Microsoft Internet Explorer" height="31" width="88"></a>
