@@ -9,7 +9,7 @@
   <body background="/images/background@0.5x.gif">
     <center>
       <h1>Redirecting...</h1>
-      <p>Redirecting to <code><%= redirect_uri %></code>. If you are not automatically redirected, <a href="<%= redirect_uri %>">click here</a>.</p>
+      <p>Redirecting to <code><%= ERB::Util.html_escape redirect_uri %></code>. If you are not automatically redirected, <a href="<%= ERB::Util.html_escape redirect_uri %>">click here</a>.</p>
       <hr>
       wayback-classic
     </center>

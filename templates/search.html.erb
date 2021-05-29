@@ -5,15 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Wayback Classic - Searching for <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></title>
-    <style type="text/css">
-      * { box-sizing: border-box; }
-      @media (max-width: 380px) {
-        #search_results img {
-          width: 64px;
-          height: 48px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/styles/search.css">
   </head>
   <body background="/images/background@0.5x.gif">
     <h1><a href="/">Wayback Classic</a></h1>
@@ -31,17 +23,20 @@
     <% if site_results.any? %>
     <table id="search_results" border="1" width="100%">
       <thead>
-        <th>Image</th>
-        <th>Site Name & Information</th>
+        <tr>
+          <th>Image</th>
+          <th>Site Name & Information</th>
+        </tr>
       </thead>
       <tbody>
       <% site_results.each do |result| %>
+        <% link = ERB::Util.html_escape uri("history.cgi", q: result["link"], utf8: legacy_encoding.utf8) %>
         <tr>
           <td align="center">
-            <a href="<%= uri("history.cgi", q: result["link"], utf8: legacy_encoding.utf8) %>"><img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= ERB::Util.html_escape result["name"] %>" width="128" height="96" /></a>
+            <a href="<%= link %>"><img src="//web.archive.org/thumb/<%= result["thumb"] %>?generate=1" alt="Thumbnail of <%= ERB::Util.html_escape result["name"] %>" width="128" height="96"></a>
           </td>
           <td>
-            <a href="<%= uri("history.cgi", q: result["link"], utf8: legacy_encoding.utf8) %>"><strong><%= ERB::Util.html_escape result["name"] %></strong></a>
+            <a href="<%= link %>"><strong><%= ERB::Util.html_escape result["name"] %></strong></a>
             <br>
             <% snippet = if legacy_encoding.encoding_override
                            result["snippet"].encode(legacy_encoding.encoding_override, undef: :replace).force_encoding("UTF-8")

@@ -24,7 +24,7 @@
           <td valign="top">
           <% index_item.each do |month_item| %>
             <% date = month_item["datetime"].strftime("%Y%m") %>
-            <a href="<%= uri("history.cgi", q: query, date: date, utf8: legacy_encoding.utf8) %>"><%= month_item["datetime"].strftime("%B") %></a>
+            <a href="<%= ERB::Util.html_escape uri("history.cgi", q: query, date: date, utf8: legacy_encoding.utf8) %>"><%= month_item["datetime"].strftime("%B") %></a>
           <% end %>
           </td>
         </tr>

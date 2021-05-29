@@ -35,7 +35,7 @@
     <ul>
     <% cdx_results.each do |cdx_result| %>
       <li>
-        <a href="//web.archive.org/web/<%= cdx_result["timestamp"] %>if_/<%= cdx_result["original"] %>"><%= cdx_result["datetime"].strftime("%B %e, %r") %></a>
+        <a href="//web.archive.org/web/<%= cdx_result["timestamp"] %>if_/<%= ERB::Util.html_escape cdx_result["original"] %>"><%= cdx_result["datetime"].strftime("%B %e, %r") %></a>
         <br>
         <%= filesize cdx_result["length"] %>, Status: <%= cdx_result["statuscode"] || "Unknown" %>, Content-type: <%= cdx_result["mimetype"] %>
       </li>
