@@ -2,6 +2,7 @@ require 'json'
 
 class ErrorReporting
   class ServerError < StandardError; end
+
   class BadRequestError < StandardError; end
 
   def self.catch_exceptions

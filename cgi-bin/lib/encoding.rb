@@ -21,8 +21,10 @@ class LegacyClientEncoding
                            canary_bytes = @utf8.split('').map(&:ord)
                            # Note: UTF-8 would be [0x2713]
                            case canary_bytes
-                           when [0xfffd, 0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b] # Safari forced to Shift_JIS mode
-                           when [0xfffd, 0x13] # Dream Passport 3
+                           # Safari forced to Shift_JIS mode
+                           when [0xfffd, 0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b]
+                           # Dream Passport 3
+                           when [0xfffd, 0x13]
                              "Shift_JIS" # or GB 2312
                              # when [0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b,
                              #       0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b,
