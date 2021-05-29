@@ -22,16 +22,14 @@
       <% date_index.each do |year, index_item| %>
         <optgroup label="<%= year %>">
         <% index_item.each do |month_item| %>
-          <% item_date = month_item["datetime"].strftime("%Y%m") %>
-          <option value="<%= item_date %>"<% if date == item_date %> selected<% end %>>
-            <%= month_item["datetime"].strftime("%B %Y") %>
-          </option>
+          <option value="<%= item_date = month_item["datetime"].strftime("%Y%m") %>"<% if date == item_date %> selected<% end %>><%= month_item["datetime"].strftime("%B %Y") %></option>
         <% end %>
         </optgroup>
       <% end %>
       </select>
       <input type="submit" value="Go">
     </form>
+  <% if cdx_results.any? %>
     <ul>
     <% cdx_results.each do |cdx_result| %>
       <li>
@@ -41,6 +39,9 @@
       </li>
     <% end %>
     </ul>
+  <% else %>
+    <p>This URL has not been archived in this time period</p>
+  <% end %>
     <hr>
     <p><small>Wayback Classic retrieves data from The Wayback Machine. The Wayback Machine is run by the <a href="//archive.org">Internet Archive</a>. They do amazing work preserving all sorts of things, including the websites you find here. You should consider <a href="//archive.org/donate/">donating</a> to them! Copyright &copy; 2021 Jessica Stokes. <a href="https://github.com/ticky/wayback-classic">Source code available on GitHub</a></small></p>
     <a href="//web.archive.org/web/19970220020535/http://www.microsoft.com/ie/download/"><img border="0" src="/images/ie.gif" alt="Microsoft Internet Explorer" height="31" width="88"></a>

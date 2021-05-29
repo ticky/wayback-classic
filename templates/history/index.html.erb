@@ -15,7 +15,7 @@
     </form>
     <hr>
     <h2>Date index for URL <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></h2>
-    <% if date_index.any? %>
+  <% if date_index.any? %>
     <table border="1" width="100%">
       <tbody>
       <% date_index.each do |year, index_item| %>
@@ -23,17 +23,16 @@
           <th align="center" valign="top"><strong><%= year %></strong></th>
           <td valign="top">
           <% index_item.each do |month_item| %>
-            <% date = month_item["datetime"].strftime("%Y%m") %>
-            <a href="<%= ERB::Util.html_escape uri("history.cgi", q: query, date: date, utf8: legacy_encoding.utf8) %>"><%= month_item["datetime"].strftime("%B") %></a>
+            <a href="<%= ERB::Util.html_escape uri("history.cgi", q: query, date: month_item["datetime"].strftime("%Y%m"), utf8: legacy_encoding.utf8) %>"><%= month_item["datetime"].strftime("%B") %></a>
           <% end %>
           </td>
         </tr>
       <% end %>
       </tbody>
     </table>
-    <% else %>
+  <% else %>
     <p>This URL has not been archived</p>
-    <% end %>
+  <% end %>
     <hr>
     <p><small>Wayback Classic retrieves data from The Wayback Machine. The Wayback Machine is run by the <a href="//archive.org">Internet Archive</a>. They do amazing work preserving all sorts of things, including the websites you find here. You should consider <a href="//archive.org/donate/">donating</a> to them! Copyright &copy; 2021 Jessica Stokes. <a href="https://github.com/ticky/wayback-classic">Source code available on GitHub</a></small></p>
     <a href="//web.archive.org/web/19970220020535/http://www.microsoft.com/ie/download/"><img border="0" src="/images/ie.gif" alt="Microsoft Internet Explorer" height="31" width="88"></a>
