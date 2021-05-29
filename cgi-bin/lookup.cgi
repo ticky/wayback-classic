@@ -17,17 +17,18 @@ require_relative 'lib/web_client'
 utf8, encoding_override = detect_client_encoding
 
 CGI.new.tap do |cgi|
-  catch_exceptions_and_respond(cgi) do
+  ErrorReporting.catch_and_respond(cgi) do
     if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.empty?
-      raise StandardError.new("A `q` parameter must be supplied, and no other parameters are accepted")
+      raise ErrorReporting::BadRequestError.new("A `q` parameter must be supplied, and no other parameters are accepted")
     end
 
     query = cgi.params["q"].first
 
-    response = WebClient.open uri("https://web.archive.org/__wb/search/host", q: query)
+    response = WebClient.open uri("https://archive.org/__wb/search/host", q: query)
 
+    # TODO: This doesn't actually work with this HTTP client
     unless response.status[0][0] == "2"
-      raise StandardError.new("Couldn't retrieve information about this URL")
+      raise ErrorReporting::ServerError.new("Couldn't retrieve information about this URL")
     end
 
     data = JSON.parse response.read

@@ -19,9 +19,9 @@ require_relative 'lib/web_client'
 utf8, encoding_override = detect_client_encoding
 
 CGI.new.tap do |cgi|
-  catch_exceptions_and_respond(cgi) do
+  ErrorReporting.catch_and_respond(cgi) do
     if cgi.params.keys - ["q", "date"] != [] || cgi.params["q"]&.first.empty?
-      raise StandardError.new("A query parameter must be provided")
+      raise ErrorReporting::BadRequestError.new("A query parameter must be provided")
     end
 
     query = cgi.params["q"]&.first
@@ -33,8 +33,9 @@ CGI.new.tap do |cgi|
                                     output: "json",
                                     collapse: "timestamp:6")
 
+      # TODO: This doesn't actually work with this HTTP client
       unless response.status[0][0] == "2"
-        raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
+        raise ErrorReporting::ServerError.new("Couldn't retrieve page history for this URL: #{response.read}")
       end
 
       CDX.objectify(JSON.parse(response.read)).group_by { |index_item| index_item["datetime"].year }
@@ -54,8 +55,9 @@ CGI.new.tap do |cgi|
                                     to: date,
                                     collapse: "digest")
 
+      # TODO: This doesn't actually work with this HTTP client
       unless response.status[0][0] == "2"
-        raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
+        raise ErrorReporting::ServerError.new("Couldn't retrieve page history for this URL: #{response.read}")
       end
 
       cdx_results = CDX.objectify JSON.parse(response.read)
