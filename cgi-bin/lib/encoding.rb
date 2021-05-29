@@ -8,6 +8,7 @@ class LegacyClientEncoding
   def initialize
     @utf8 = nil
 
+    # TODO: Handle un-encoded values, somehow?
     query = URI.decode_www_form(ENV["QUERY_STRING"]).to_h
 
     if query["utf8"]
