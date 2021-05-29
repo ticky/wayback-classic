@@ -36,4 +36,12 @@ class LegacyClientEncoding
                            end
                          end
   end
+
+  def quotify(value)
+    if @encoding_override
+      "\"#{value}\""
+    else
+      "“#{value}”"
+    end
+  end
 end

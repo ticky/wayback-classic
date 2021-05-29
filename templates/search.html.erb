@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Wayback Classic - Searching for <%= ERB::Util.html_escape quotify(query, legacy_encoding.encoding_override) %></title>
+    <title>Wayback Classic - Searching for <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></title>
     <style type="text/css">
       * { box-sizing: border-box; }
       @media (max-width: 380px) {
@@ -27,7 +27,7 @@
     <p><font color="gray"><strong>Note</strong>: Your browser is not honouring the text encoding for this page. Wayback Classic is attempting to provide this page in the <%= legacy_encoding.encoding_override %> encoding it appears to require. If something looks wrong, please send us the current URL of this page. You can also remove the <code>utf8=</code> parameter from the URL to turn this off, but some content may appear garbled.</font></p>
     <hr>
     <% end %>
-    <h2>Search results for <%= ERB::Util.html_escape quotify(query, legacy_encoding.encoding_override) %></h2>
+    <h2>Search results for <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></h2>
     <% if site_results.any? %>
     <table id="search_results" border="1" width="100%">
       <thead>
