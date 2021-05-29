@@ -39,7 +39,7 @@ CGI.new.tap do |cgi|
         raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
       end
 
-      cdx_objectify(JSON.parse(response.read)).group_by { |index_item| index_item["datetime"].year }
+      CDX.objectify(JSON.parse(response.read)).group_by { |index_item| index_item["datetime"].year }
     end
 
     if date.nil? || date.empty? || date.length < 6
@@ -61,7 +61,7 @@ CGI.new.tap do |cgi|
         raise StandardError.new("Couldn't retrieve page history for this URL: #{response.read}")
       end
 
-      cdx_results = cdx_objectify JSON.parse(response.read)
+      cdx_results = CDX.objectify JSON.parse(response.read)
 
       cgi.out "type" => "text/html",
               "charset" => "UTF-8",
