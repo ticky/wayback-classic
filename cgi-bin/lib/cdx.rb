@@ -1,3 +1,4 @@
+require 'date'
 require 'json'
 
 class CDX
