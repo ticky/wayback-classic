@@ -1,31 +1,33 @@
+require 'uri'
+
 class LegacyClientEncoding
-  def self.detect
-    new
+  def self.detect(*args)
+    new(*args)
   end
 
   attr_reader :utf8, :encoding_override
 
-  def initialize
+  def initialize(env=ENV)
     @utf8 = nil
 
     # TODO: Handle un-encoded values, somehow?
-    query = URI.decode_www_form(ENV["QUERY_STRING"]).to_h
+    query = URI.decode_www_form(env["QUERY_STRING"] || "").to_h
 
-    if query["utf8"]
+    unless query["utf8"].nil? || query["utf8"].empty?
       @utf8 = query["utf8"]
       query.delete("utf8")
-    end
 
-    ENV["QUERY_STRING"] = URI.encode_www_form query
+      env["QUERY_STRING"] = URI.encode_www_form query
+    end
 
     @encoding_override = if @utf8 != nil
                            canary_bytes = @utf8.split('').map(&:ord)
                            # Note: UTF-8 would be [0x2713]
                            case canary_bytes
                            # Safari forced to Shift_JIS mode
-                           when [0xfffd, 0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b]
+                           when [0xfffd, 0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b],
                            # Dream Passport 3
-                           when [0xfffd, 0x13]
+                                [0xfffd, 0x13]
                              "Shift_JIS" # or GB 2312
                              # when [0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b,
                              #       0x26, 0x23, 0x36, 0x35, 0x35, 0x33, 0x33, 0x3b,
