@@ -37,15 +37,11 @@
           <td>
             <a href="<%= link %>"><strong><%= ERB::Util.html_escape result["name"] %></strong></a>
             <br>
-            <% snippet = if legacy_encoding.encoding_override
-                           result["snippet"].encode(legacy_encoding.encoding_override, undef: :replace).force_encoding("UTF-8")
-                         else
-                           result["snippet"]
-                         end %><%= ERB::Util.html_escape snippet %>
+            <%= ERB::Util.html_escape legacy_encoding.encode(result["snippet"]) %>
             <br>
             <small>
               <font color="gray">
-                <%= number_formatter result["capture"] %> <%= if result["capture"] == 1 then "capture" else "captures" end %> between <%= result["first_captured"] %> and <%= result["last_captured"] %>
+                <%= pluralize result["capture"], "capture", "captures" %> between <%= result["first_captured"] %> and <%= result["last_captured"] %>
               </font>
               <br>
               Jump to: <a href="<%= ERB::Util.html_escape uri("history.cgi", q: result["link"], date: "earliest", utf8: legacy_encoding.utf8) %>">Earliest</a>, <a href="<%= ERB::Util.html_escape uri("history.cgi", q: result["link"], date: "latest", utf8: legacy_encoding.utf8) %>">Latest</a>

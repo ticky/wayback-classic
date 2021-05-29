@@ -40,6 +40,12 @@ class LegacyClientEncoding
                          end
   end
 
+  def encode(value)
+    return value unless @encoding_override
+
+    value.encode(@encoding_override, undef: :replace).force_encoding("UTF-8")
+  end
+
   def quotify(value)
     if @encoding_override
       "\"#{value}\""

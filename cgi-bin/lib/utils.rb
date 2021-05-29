@@ -17,6 +17,16 @@ def number_formatter(number)
   number.to_s.gsub(/\B(?=(...)*\b)/, ',')
 end
 
+def pluralize(number, singular, plural)
+  counter = if number == 1
+              singular
+            else
+              plural
+            end
+
+  "#{number_formatter number} #{counter}"
+end
+
 def filesize(size)
   size = size.to_i
 
