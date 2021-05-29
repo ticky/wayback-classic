@@ -1,4 +1,6 @@
-def catch_exceptions(cgi)
+require 'json'
+
+def catch_exceptions
   yield
 rescue => error
   STDERR.puts JSON.dump(error: {
@@ -17,7 +19,7 @@ rescue => error
 end
 
 def catch_exceptions_and_respond(cgi, &block)
-  if error = catch_exceptions(cgi, &block)
+  if error = catch_exceptions(&block)
     cgi.out "type" => "text/html",
             "charset" => "UTF-8",
             "status" => "BAD_REQUEST" do
