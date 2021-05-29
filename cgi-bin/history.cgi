@@ -48,10 +48,10 @@ CGI.new.tap do |cgi|
         scheme = if ENV["HTTPS"] == "on"
                    "https"
                  else
-                   ENV["REQUEST_URI"]&.split(":").first || "http"
+                   ENV["REQUEST_URI"]&.split(":").first
                  end
 
-        redirect_uri = "#{scheme}://web.archive.org/web/#{cdx_results.first["timestamp"]}if_/#{cdx_results.first["original"]}"
+        redirect_uri = "#{scheme || "http"}://web.archive.org/web/#{cdx_results.first["timestamp"]}if_/#{cdx_results.first["original"]}"
 
         cgi.out "type" => "text/html",
                 "charset" => "UTF-8",
