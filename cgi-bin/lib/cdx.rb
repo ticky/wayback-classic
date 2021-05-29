@@ -1,5 +1,9 @@
+require 'json'
+
 class CDX
   def self.objectify(data)
+    data = JSON.parse data if data.is_a? String
+
     heading = data[0]
     rows = data[1..-1] || []
 

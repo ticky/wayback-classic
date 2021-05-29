@@ -24,12 +24,11 @@ CGI.new.tap do |cgi|
 
     query = cgi.params["q"].first
 
-    response = WebClient.open uri("https://web.archive.org/__wb/search/host", q: query)
-
-    # TODO: This doesn't actually work with this HTTP client
-    unless response.status[0][0] == "2"
-      raise ErrorReporting::ServerError.new("Couldn't retrieve information about this URL")
-    end
+    response = begin
+                 WebClient.open uri("https://web.archive.org/__wb/search/host", q: query)
+               rescue OpenURI::HTTPError
+                 raise ErrorReporting::ServerError.new("Couldn't retrieve information for this query or URL")
+               end
 
     data = JSON.parse response.read
 

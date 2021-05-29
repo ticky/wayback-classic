@@ -9,7 +9,7 @@
   <body background="/images/background@0.5x.gif">
     <center>
       <h1>Error</h1>
-    <% if error.class <= ErrorReporting::BadRequestError %>
+    <% if error.class <= ErrorReporting::ReportableError %>
       <p><%= error %></p>
       <p>Want to try again?</p>
     <% else %>

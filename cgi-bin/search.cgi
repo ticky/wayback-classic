@@ -24,12 +24,11 @@ CGI.new.tap do |cgi|
 
     query = cgi.params["q"].first
 
-    response = WebClient.open uri("https://web.archive.org/__wb/search/anchor", q: query)
-
-    # TODO: This doesn't actually work with this HTTP client
-    unless response.status[0][0] == "2"
-      raise ErrorReporting::ServerError.new("Couldn't retrieve results for these keywords")
-    end
+    response = begin
+                 WebClient.open uri("https://web.archive.org/__wb/search/anchor", q: query)
+               rescue OpenURI::HTTPError
+                 raise ErrorReporting::ServerError.new("Couldn't retrieve results for these keywords")
+               end
 
     site_results = JSON.parse response.read
 

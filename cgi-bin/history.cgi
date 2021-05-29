@@ -33,12 +33,9 @@ CGI.new.tap do |cgi|
                                     output: "json",
                                     collapse: "timestamp:6")
 
-      # TODO: This doesn't actually work with this HTTP client
-      unless response.status[0][0] == "2"
-        raise ErrorReporting::ServerError.new("Couldn't retrieve page history for this URL: #{response.read}")
-      end
-
-      CDX.objectify(JSON.parse(response.read)).group_by { |index_item| index_item["datetime"].year }
+      CDX.objectify(response.read).group_by { |index_item| index_item["datetime"].year }
+    rescue OpenURI::HTTPError
+      raise ErrorReporting::ServerError.new("Couldn't retrieve date index for this URL")
     end
 
     if date.nil? || date.empty? || date.length < 6
@@ -48,19 +45,18 @@ CGI.new.tap do |cgi|
         render "history/index.html", query: query, date_index: date_index
       end
     else
-      response = WebClient.open uri("http://web.archive.org/cdx/search/cdx",
-                                    url: query,
-                                    output: "json",
-                                    from: date,
-                                    to: date,
-                                    collapse: "digest")
+      response = begin
+                   WebClient.open uri("http://web.archive.org/cdx/search/cdx",
+                                      url: query,
+                                      output: "json",
+                                      from: date,
+                                      to: date,
+                                      collapse: "digest")
+                 rescue OpenURI::HTTPError
+                   raise ErrorReporting::ServerError.new("Couldn't retrieve monthly history for this URL")
+                 end
 
-      # TODO: This doesn't actually work with this HTTP client
-      unless response.status[0][0] == "2"
-        raise ErrorReporting::ServerError.new("Couldn't retrieve page history for this URL: #{response.read}")
-      end
-
-      cdx_results = CDX.objectify JSON.parse(response.read)
+      cdx_results = CDX.objectify response.read
 
       cgi.out "type" => "text/html",
               "charset" => "UTF-8",

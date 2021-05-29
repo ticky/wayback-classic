@@ -1,9 +1,11 @@
 require 'json'
 
 class ErrorReporting
-  class ServerError < StandardError; end
+  class ReportableError < StandardError; end
 
-  class BadRequestError < StandardError; end
+  class ServerError < ReportableError; end
+
+  class BadRequestError < ReportableError; end
 
   def self.catch_exceptions
     yield
