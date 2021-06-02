@@ -22,7 +22,7 @@ class TestCDX < Minitest::Test
         "length" => "1048" }
     ]
 
-    object = CDX.objectify(<<~JSON)
+    object = WaybackClassic::CDX.objectify(<<~JSON)
       [["urlkey","timestamp","original","mimetype","statuscode","digest","length"],
       ["jp,ne,dricas,pso)/", "20010202054100", "http://pso.dricas.ne.jp:80/", "text/html", "200", "MPPCZOZMMLAPX7DKSDGABNOPXSHEOJUN", "1045"],
       ["jp,ne,dricas,pso)/", "20010224204616", "http://pso.dricas.ne.jp:80/", "text/html", "200", "HL36R4XZNBVYKLXJ5DC2NNIQHXI4LKFB", "1048"]]
@@ -51,7 +51,7 @@ class TestCDX < Minitest::Test
         "length" => "1048" }
     ]
 
-    object = CDX.objectify(
+    object = WaybackClassic::CDX.objectify(
       [["urlkey", "timestamp", "original", "mimetype", "statuscode", "digest", "length"],
        ["jp,ne,dricas,pso)/", "20010202054100", "http://pso.dricas.ne.jp:80/", "text/html", "200",
         "MPPCZOZMMLAPX7DKSDGABNOPXSHEOJUN", "1045"],
@@ -63,7 +63,7 @@ class TestCDX < Minitest::Test
   end
 
   def test_objectify_header_only
-    object = CDX.objectify(<<~JSON)
+    object = WaybackClassic::CDX.objectify(<<~JSON)
       [["urlkey","timestamp","original","mimetype","statuscode","digest","length"]]
     JSON
 
@@ -71,6 +71,6 @@ class TestCDX < Minitest::Test
   end
 
   def test_objectify_empty
-    assert_equal [], CDX.objectify([])
+    assert_equal [], WaybackClassic::CDX.objectify([])
   end
 end

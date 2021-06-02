@@ -14,28 +14,38 @@ require_relative 'lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_T
 require_relative 'lib/utils'
 require_relative 'lib/web_client'
 
-legacy_encoding = LegacyClientEncoding.detect
+module WaybackClassic
+  module Search
+    def self.run
+      legacy_encoding = LegacyClientEncoding.detect
 
-CGI.new.tap do |cgi|
-  ErrorReporting.catch_and_respond(cgi) do
-    if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.empty?
-      raise ErrorReporting::BadRequestError.new("A `q` parameter must be supplied, and no other parameters are accepted")
-    end
+      CGI.new.tap do |cgi|
+        ErrorReporting.catch_and_respond(cgi) do
+          if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.empty?
+            raise ErrorReporting::BadRequestError.new("A `q` parameter must be supplied, and no other parameters are accepted")
+          end
 
-    query = cgi.params["q"].first
+          query = cgi.params["q"].first
 
-    response = begin
-                 WebClient.open uri("https://web.archive.org/__wb/search/anchor", q: query)
-               rescue OpenURI::HTTPError
-                 raise ErrorReporting::ServerError.new("Couldn't retrieve results for these keywords")
-               end
+          response = begin
+                       WebClient.open uri("https://web.archive.org/__wb/search/anchor", q: query)
+                     rescue OpenURI::HTTPError
+                       raise ErrorReporting::ServerError.new("Couldn't retrieve results for these keywords")
+                     end
 
-    site_results = JSON.parse response.read
+          site_results = JSON.parse response.read
 
-    cgi.out "type" => "text/html",
-            "charset" => "UTF-8",
-            "status" => "OK" do
-      render "search.html", query: query, site_results: site_results
+          cgi.out "type" => "text/html",
+                  "charset" => "UTF-8",
+                  "status" => "OK" do
+            render "search.html", query: query,
+                                  site_results: site_results,
+                                  legacy_encoding: legacy_encoding
+          end
+        end
+      end
     end
   end
 end
+
+WaybackClassic::Search.run if $PROGRAM_NAME == __FILE__
