@@ -25,7 +25,7 @@ class TestLookup < CapybaraTestCase
 
   def test_no_parameters
     visit "/cgi-bin/lookup.cgi"
-    assert_current_path "/cgi-bin/lookup.cgi" # WTF?
+    assert_current_path "/cgi-bin/lookup.cgi"
 
     assert_title "Wayback Classic - Error"
     assert_text "A `q` parameter must be supplied, and no other parameters are accepted"
