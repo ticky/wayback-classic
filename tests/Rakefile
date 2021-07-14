@@ -1,7 +1,9 @@
 require "rake/testtask"
 
 Rake::TestTask.new do |task|
-  task.test_files = FileList['./**/*_test.rb']
+  # On GitHub Actions CI, gems install under a "vendor" directory in here,
+  # so we have to glob our way around that!
+  task.test_files = FileList['./{[!vendor/]**/*,*}_test.rb']
   task.verbose = true
 end
 desc "Run tests"
