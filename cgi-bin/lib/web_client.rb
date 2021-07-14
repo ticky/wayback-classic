@@ -32,7 +32,7 @@ module WaybackClassic
 
         meta = if File.exist? meta_name
                  File.open(meta_name, 'r') do |file|
-                   YAML.safe_load file.read, [Symbol]
+                   YAML.safe_load file.read, permitted_classes: [Symbol]
                  end
                end
 
