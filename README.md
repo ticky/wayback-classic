@@ -1,6 +1,10 @@
 # Wayback Classic
 
+[![Ruby](https://github.com/ticky/wayback-classic/actions/workflows/ruby.yml/badge.svg)](https://github.com/ticky/wayback-classic/actions/workflows/ruby.yml) [![Deploy](https://github.com/ticky/wayback-classic/actions/workflows/main.yml/badge.svg)](https://github.com/ticky/wayback-classic/actions/workflows/main.yml)
+
 A simple, CGI-based frontend for the Wayback Machine which works on old browsers without modern JavaScript or CSS support
+
+The main instance of Wayback Classic is available at [wayback-classic.net](http://wayback-classic.net). It supports both HTTP and HTTPS.
 
 ## Why
 
@@ -16,4 +20,10 @@ This is built on both the [CDX API](https://github.com/internetarchive/wayback/t
 
 A basic, WEBrick-based development server script is included at `bin/dev-server`. It defaults to `localhost:8000`, but the port can be overridden by setting a `PORT` environment variable.
 
-For testing purposes, the CGI scripts are loaded as modules instead of normal scripts, and their lifecycle is exercised by a minimal Rack application to facilitate the use of Capybara.
+### Testing
+
+While the root directory of this repository is intended to map directly to the root htdocs directory of a server, with no dependencies other than the Ruby standard library, a `Gemfile` is provided under the `tests` directory which contains dependencies for testing.
+
+For testing purposes, the CGI scripts are loaded as Ruby modules instead of normal scripts, and their lifecycle is exercised by a minimal Rack application to facilitate the use of Capybara.
+
+To run the test suite, open a terminal within the `tests` directory, and run `bundle && bundle exec rake`.
