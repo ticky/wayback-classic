@@ -1,23 +1,32 @@
 require 'capybara/minitest'
 require 'stringio'
 
-load '../cgi-bin/history.cgi'
-load '../cgi-bin/lookup.cgi'
-load '../cgi-bin/search.cgi'
-
 class RackWrapper
+  LOADED_MODULES = []
+
   def self.call(env)
     request = Rack::Request.new(env)
 
     case request.path
     when "/", "/index.html"
       return [200, {}, File.read("../index.html")]
-    when "/cgi-bin/history.cgi"
-      capture_cgi(env) { WaybackClassic::History.run }
-    when "/cgi-bin/lookup.cgi"
-      capture_cgi(env) { WaybackClassic::Lookup.run }
-    when "/cgi-bin/search.cgi"
-      capture_cgi(env) { WaybackClassic::Search.run }
+    when /\A\/cgi-bin\/(?<name>[A-Za-z0-9]+)\.cgi\z/
+      script_name = $~[:name]
+
+      unless LOADED_MODULES.include? script_name
+        load "../cgi-bin/#{script_name}.cgi"
+        LOADED_MODULES.push script_name
+      end
+
+      class_name = script_name.split(/[-_]/).map do |segment|
+        segment = segment.downcase
+        segment[0] = segment[0].upcase
+        segment
+      end.join ""
+
+      klass = Object.const_get("WaybackClassic::#{class_name}")
+
+      capture_cgi(env) { klass.run }
     end
   end
 
