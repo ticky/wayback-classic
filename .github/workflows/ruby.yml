@@ -20,5 +20,5 @@ jobs:
         working-directory: ./tests
 
     - name: Run tests
-      run: rake
+      run: bundle exec rake
       working-directory: ./tests
