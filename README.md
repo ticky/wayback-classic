@@ -15,3 +15,5 @@ This is built on both the [CDX API](https://github.com/internetarchive/wayback/t
 ## Development
 
 A basic, WEBrick-based development server script is included at `bin/dev-server`. It defaults to `localhost:8000`, but the port can be overridden by setting a `PORT` environment variable.
+
+For testing purposes, the CGI scripts are loaded as modules instead of normal scripts, and their lifecycle is exercised by a minimal Rack application to facilitate the use of Capybara.

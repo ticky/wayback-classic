@@ -21,7 +21,7 @@ module WaybackClassic
 
       CGI.new.tap do |cgi|
         ErrorReporting.catch_and_respond(cgi) do
-          if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.empty?
+          if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.nil? || cgi.params["q"]&.first&.empty?
             raise ErrorReporting::BadRequestError.new("A `q` parameter must be supplied, and no other parameters are accepted")
           end
 

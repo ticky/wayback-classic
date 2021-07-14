@@ -21,7 +21,7 @@ module WaybackClassic
 
       CGI.new.tap do |cgi|
         ErrorReporting.catch_and_respond(cgi) do
-          if cgi.params.keys - ["q", "date"] != [] || cgi.params["q"]&.first.empty?
+          if cgi.params.keys - ["q", "date"] != [] || cgi.params["q"]&.first.nil? || cgi.params["q"]&.first&.empty?
             raise ErrorReporting::BadRequestError.new("A query parameter must be provided")
           end
 
