@@ -1,18 +1,20 @@
 require 'minitest/autorun'
-require 'open3'
-require 'webrick/cookie'
-require 'webrick/httpresponse'
-require 'webrick/httpstatus'
-require 'webrick/httputils'
 require_relative 'capybara_test_case'
 
 class TestLookup < CapybaraTestCase
-  def test_keywords
+  def test_keywords_redirect
     visit "/cgi-bin/lookup.cgi?q=apple&utf8=%E2%9C%93"
     assert_current_path "/cgi-bin/search.cgi?q=apple&utf8=%E2%9C%93"
+  end
 
-    assert_title "Wayback Classic - Searching for “apple”"
-    assert_text "Search results for “apple”"
+  def test_utf8_canary_dreampassport3_redirect
+    visit "/cgi-bin/lookup.cgi?q=dricas&utf8=%EF%BF%BD%13"
+    assert_current_path "/cgi-bin/search.cgi?q=dricas&utf8=%EF%BF%BD%13"
+  end
+
+  def test_utf8_canary_safari_jis_redirect
+    visit "/cgi-bin/lookup.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B"
+    assert_current_path "/cgi-bin/search.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B"
   end
 
   def test_empty_parameters
