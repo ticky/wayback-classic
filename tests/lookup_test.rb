@@ -34,6 +34,13 @@ class TestLookup < CapybaraTestCase
     end
   end
 
+  def test_url_redirect
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
+      visit '/cgi-bin/lookup.cgi?q=apple.com&utf8=%E2%9C%93'
+      assert_current_path '/cgi-bin/history.cgi?q=apple.com&utf8=%E2%9C%93'
+    end
+  end
+
   def test_utf8_canary_dreampassport3_redirect
     VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi?q=dricas&utf8=%EF%BF%BD%13'
