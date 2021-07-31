@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://web.archive.org/__wb/search/anchor?q=site:ne.jp%20dricas
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - wayback-classic.nfshost.com/0.1 (wayback@jessicastokes.net) Ruby/2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.15.8
+      Date:
+      - Sat, 31 Jul 2021 19:07:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '19375'
+      Connection:
+      - keep-alive
+      X-App-Server:
+      - wwwb-app42
+      X-Ts:
+      - '200'
+      X-Tr:
+      - '3265'
+      X-Location:
+      - wb-search
+      X-Cache-Key:
+      - httpsweb.archive.org/__wb/search/anchor?q=site%3Ane.jp+dricasCA
+      X-Rl:
+      - '0'
+      X-Na:
+      - '0'
+      X-Page-Cache:
+      - MISS
+      X-Nid:
+      - "-"
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Permissions-Policy:
+      - interest-cohort=()
+    body:
+      encoding: UTF-8
+      string: '[{"video":0,"display_name":"pso.dricas.ne.jp","first_captured":2000,"text":"http
+        pso dricas ne jp","snippet":"support","webpage":288883,"thumb":"pso.dricas.ne.jp","stripped_snippet":"support","capture":484066,"link":"http://pso.dricas.ne.jp/","last_captured":2008,"audio":0,"image":50,"name":"pso.dricas.ne.jp"},{"video":0,"display_name":"aerodancing.dricas.ne.jp","first_captured":1999,"text":"http
+        aerodancing dricas ne jp","snippet":"http://aerodancing.dricas.ne.jp/","webpage":5515,"thumb":"aerodancing.dricas.ne.jp","stripped_snippet":"httpaerodancingdricasnejp","capture":18087,"link":"http://aerodancing.dricas.ne.jp/","last_captured":2007,"audio":0,"image":351,"name":"aerodancing.dricas.ne.jp"},{"video":0,"display_name":"mtsuku.dricas.ne.jp","first_captured":2000,"text":"http
+        mtsuku dricas ne jp","snippet":"http://mtsuku.dricas.ne.jp/","webpage":4649,"thumb":"mtsuku.dricas.ne.jp","stripped_snippet":"httpmtsukudricasnejp","capture":5046,"link":"http://mtsuku.dricas.ne.jp/","last_captured":2007,"audio":0,"image":18,"name":"mtsuku.dricas.ne.jp"},{"video":0,"display_name":"eldorado.dricas.ne.jp","first_captured":2001,"text":"http
+        eldorado dricas ne jp","snippet":"http://eldorado.dricas.ne.jp/","webpage":1,"thumb":"eldorado.dricas.ne.jp","stripped_snippet":"httpeldoradodricasnejp","capture":25,"link":"http://eldorado.dricas.ne.jp/","last_captured":2005,"audio":0,"image":0,"name":"eldorado.dricas.ne.jp"},{"video":0,"display_name":"culdcept.dricas.ne.jp","first_captured":2001,"text":"http
+        culdcept dricas ne jp","snippet":"http://culdcept.dricas.ne.jp/","webpage":33,"thumb":"culdcept.dricas.ne.jp","stripped_snippet":"httpculdceptdricasnejp","capture":1188,"link":"http://culdcept.dricas.ne.jp/","last_captured":2007,"audio":0,"image":61,"name":"culdcept.dricas.ne.jp"},{"video":0,"display_name":"add-dc.dricas.ne.jp","first_captured":2000,"text":"http
+        add dc dricas ne jp","snippet":"http://add-dc.dricas.ne.jp/","webpage":15514,"thumb":"add-dc.dricas.ne.jp","stripped_snippet":"httpadddcdricasnejp","capture":35996,"link":"http://add-dc.dricas.ne.jp/","last_captured":2007,"audio":0,"image":153,"name":"add-dc.dricas.ne.jp"},{"video":1,"display_name":"www.dricas.ne.jp","first_captured":1999,"text":"http
+        www dricas ne jp","snippet":"dreamhome","webpage":1466,"thumb":"dricas.ne.jp","stripped_snippet":"dreamhome","capture":17182,"link":"http://dricas.ne.jp/","last_captured":2016,"audio":0,"image":904,"name":"dricas.ne.jp"},{"video":1,"display_name":"hundred.dricas.ne.jp","first_captured":2000,"text":"http
+        hundred dricas ne jp","snippet":"\u008c\u00f6\u008e\u00ae\u0083z\u0081[\u0083\u0080\u0083y\u0081[\u0083w\u0082\u00f6","webpage":310,"thumb":"hundred.dricas.ne.jp","stripped_snippet":"\u008c\u00f6\u008e\u00ae\u0083z\u0081\u0083\u0080\u0083y\u0081\u0083w\u0082\u00f6","capture":1473,"link":"http://hundred.dricas.ne.jp/","last_captured":2007,"audio":0,"image":221,"name":"hundred.dricas.ne.jp"},{"video":0,"display_name":"dabitsuku.dricas.ne.jp","first_captured":2000,"text":"http
+        dabitsuku dricas ne jp","snippet":"\u516c\u5f0f\uff48\uff50","webpage":250,"thumb":"dabitsuku.dricas.ne.jp","stripped_snippet":"\u516c\u5f0f\uff48\uff50","capture":685,"link":"http://dabitsuku.dricas.ne.jp/","last_captured":2007,"audio":0,"image":19,"name":"dabitsuku.dricas.ne.jp"},{"video":0,"display_name":"shiyouyo.dricas.ne.jp","first_captured":2000,"text":"http
+        shiyouyo dricas ne jp","snippet":"\u30b4\u30eb\u30d5\u3057\u3088\u3046\u3088","webpage":4023,"thumb":"shiyouyo.dricas.ne.jp","stripped_snippet":"\u30b4\u30eb\u30d5\u3057\u3088\u3046\u3088","capture":10620,"link":"http://shiyouyo.dricas.ne.jp/","last_captured":2007,"audio":0,"image":423,"name":"shiyouyo.dricas.ne.jp"},{"video":0,"display_name":"arcadia.dricas.ne.jp","first_captured":2000,"text":"http
+        arcadia dricas ne jp","snippet":"\u30a8\u30bf\u30fc\u30ca\u30eb\u30a2\u30eb\u30ab\u30c7\u30a3\u30a2","webpage":390,"thumb":"arcadia.dricas.ne.jp","stripped_snippet":"\u30a8\u30bf\u30fc\u30ca\u30eb\u30a2\u30eb\u30ab\u30c7\u30a3\u30a2","capture":1911,"link":"http://arcadia.dricas.ne.jp/","last_captured":2007,"audio":0,"image":31,"name":"arcadia.dricas.ne.jp"},{"video":0,"display_name":"sonic2.dricas.ne.jp","first_captured":2001,"text":"http
+        sonic2 dricas ne jp","snippet":"http://sonic2.dricas.ne.jp/","webpage":1016,"thumb":"sonic2.dricas.ne.jp","stripped_snippet":"httpsonic2dricasnejp","capture":19005,"link":"http://sonic2.dricas.ne.jp/","last_captured":2016,"audio":0,"image":653,"name":"sonic2.dricas.ne.jp"},{"video":2,"display_name":"chu-chu.dricas.ne.jp","first_captured":2000,"text":"http
+        chu chu dricas ne jp","snippet":"chu chu rocket homepage","webpage":8164,"thumb":"chu-chu.dricas.ne.jp","stripped_snippet":"chuchurockethomepage","capture":20606,"link":"http://chu-chu.dricas.ne.jp/","last_captured":2006,"audio":0,"image":45,"name":"chu-chu.dricas.ne.jp"},{"video":0,"display_name":"jet.dricas.ne.jp","first_captured":2000,"text":"http
+        jet dricas ne jp","snippet":"http://jet.dricas.ne.jp/","webpage":622,"thumb":"jet.dricas.ne.jp","stripped_snippet":"httpjetdricasnejp","capture":3117,"link":"http://jet.dricas.ne.jp/","last_captured":2007,"audio":3,"image":274,"name":"jet.dricas.ne.jp"},{"video":0,"display_name":"ccs-tomo.dricas.ne.jp","first_captured":2001,"text":"http
+        ccs tomo dricas ne jp","snippet":"\u30ab\u30fc\u30c9\u30ad\u30e3\u30d7\u30bf\u30fc\u3055\u304f\u3089
+        \u77e5\u4e16\u306e\u30d3\u30c7\u30aa\u5927\u4f5c\u6226","webpage":18,"thumb":"ccs-tomo.dricas.ne.jp","stripped_snippet":"\u30ab\u30fc\u30c9\u30ad\u30e3\u30d7\u30bf\u30fc\u3055\u304f\u3089\u77e5\u4e16\u306e\u30d3\u30c7\u30aa\u5927\u4f5c\u6226","capture":701,"link":"http://ccs-tomo.dricas.ne.jp/","last_captured":2007,"audio":0,"image":72,"name":"ccs-tomo.dricas.ne.jp"},{"video":4,"display_name":"samba.dricas.ne.jp","first_captured":2000,"text":"http
+        samba dricas ne jp","snippet":"\u30b5\u30f3\u30d0de\u30a2\u30df\u30fc\u30b4","webpage":5784,"thumb":"samba.dricas.ne.jp","stripped_snippet":"\u30b5\u30f3\u30d0de\u30a2\u30df\u30fc\u30b4","capture":30571,"link":"http://samba.dricas.ne.jp/","last_captured":2007,"audio":0,"image":120,"name":"samba.dricas.ne.jp"},{"video":0,"display_name":"www06a.dricas.ne.jp","first_captured":2001,"text":"www06a
+        dricas ne jp","snippet":"www06a.dricas.ne.jp","webpage":67,"thumb":"www06a.dricas.ne.jp","stripped_snippet":"www06adricasnejp","capture":69,"link":"http://www06a.dricas.ne.jp/","last_captured":2001,"audio":0,"image":0,"name":"www06a.dricas.ne.jp"},{"video":0,"display_name":"es.dricas.ne.jp","first_captured":2001,"text":"http
+        es dricas ne jp","snippet":"es","webpage":16,"thumb":"es.dricas.ne.jp","stripped_snippet":"es","capture":500,"link":"http://es.dricas.ne.jp/","last_captured":2007,"audio":0,"image":62,"name":"es.dricas.ne.jp"},{"video":0,"display_name":"metal.dricas.ne.jp","first_captured":2001,"text":"http
+        metal dricas ne jp","snippet":"heavy metal","webpage":1,"thumb":"metal.dricas.ne.jp","stripped_snippet":"heavymetal","capture":20,"link":"http://metal.dricas.ne.jp/","last_captured":2007,"audio":0,"image":0,"name":"metal.dricas.ne.jp"},{"video":0,"display_name":"prism-heart.dricas.ne.jp","first_captured":2001,"text":"http
+        prism heart dricas ne jp","snippet":"http://prism-heart.dricas.ne.jp/","webpage":1,"thumb":"prism-heart.dricas.ne.jp","stripped_snippet":"httpprismheartdricasnejp","capture":30,"link":"http://prism-heart.dricas.ne.jp/","last_captured":2006,"audio":0,"image":1,"name":"prism-heart.dricas.ne.jp"},{"video":0,"display_name":"dreameye.dricas.ne.jp","first_captured":2000,"text":"http
+        dreameye dricas ne jp","snippet":"\u30c9\u30ea\u30fc\u30e0\u30a2\u30a4","webpage":9,"thumb":"dreameye.dricas.ne.jp","stripped_snippet":"\u30c9\u30ea\u30fc\u30e0\u30a2\u30a4","capture":292,"link":"http://dreameye.dricas.ne.jp/","last_captured":2007,"audio":0,"image":34,"name":"dreameye.dricas.ne.jp"},{"video":0,"display_name":"gw-2.dricas.ne.jp","first_captured":2001,"text":"http
+        gw 2 dricas ne jp","snippet":"gigawing2","webpage":2,"thumb":"gw-2.dricas.ne.jp","stripped_snippet":"gigawing2","capture":35,"link":"http://gw-2.dricas.ne.jp/","last_captured":2006,"audio":0,"image":0,"name":"gw-2.dricas.ne.jp"},{"video":0,"display_name":"virtual-on.dricas.ne.jp","first_captured":2000,"text":"http
+        virtual on dricas ne jp","snippet":"http://virtual-on.dricas.ne.jp/","webpage":73,"thumb":"virtual-on.dricas.ne.jp","stripped_snippet":"httpvirtualondricasnejp","capture":2668,"link":"http://virtual-on.dricas.ne.jp/","last_captured":2007,"audio":0,"image":333,"name":"virtual-on.dricas.ne.jp"},{"video":0,"display_name":"sports-jam.dricas.ne.jp","first_captured":2001,"text":"http
+        sports jam dricas ne jp","snippet":"sports jam","webpage":2,"thumb":"sports-jam.dricas.ne.jp","stripped_snippet":"sportsjam","capture":38,"link":"http://sports-jam.dricas.ne.jp/","last_captured":2006,"audio":0,"image":1,"name":"sports-jam.dricas.ne.jp"},{"video":0,"display_name":"ddplanet.dricas.ne.jp","first_captured":2000,"text":"http
+        ddplanet dricas ne jp","snippet":"dee dee planet","webpage":53,"thumb":"ddplanet.dricas.ne.jp","stripped_snippet":"deedeeplanet","capture":686,"link":"http://ddplanet.dricas.ne.jp/","last_captured":2006,"audio":0,"image":43,"name":"ddplanet.dricas.ne.jp"},{"video":0,"display_name":"zombie-r.dricas.ne.jp","first_captured":2000,"text":"http
+        zombie r dricas ne jp","snippet":"zombie revenge","webpage":37,"thumb":"zombie-r.dricas.ne.jp","stripped_snippet":"zombierevenge","capture":569,"link":"http://zombie-r.dricas.ne.jp/","last_captured":2007,"audio":0,"image":44,"name":"zombie-r.dricas.ne.jp"},{"video":0,"display_name":"mmm.dricas.ne.jp","first_captured":2002,"text":"http
+        mmm dricas ne jp","snippet":"\u300emy merry may\u300f\u516c\u5f0f\u30db\u30fc\u30e0\u30da\u30fc\u30b8","webpage":2,"thumb":"mmm.dricas.ne.jp","stripped_snippet":"\u300emymerrymay\u300f\u516c\u5f0f\u30db\u30fc\u30e0\u30da\u30fc\u30b8","capture":48,"link":"http://mmm.dricas.ne.jp/","last_captured":2007,"audio":0,"image":1,"name":"mmm.dricas.ne.jp"},{"video":0,"display_name":"anima.dricas.ne.jp","first_captured":2000,"text":"http
+        anima dricas ne jp","snippet":"\u30a2\u30cb\u30de\u30b9\u30bf\u30fc","webpage":26,"thumb":"anima.dricas.ne.jp","stripped_snippet":"\u30a2\u30cb\u30de\u30b9\u30bf\u30fc","capture":789,"link":"http://anima.dricas.ne.jp/","last_captured":2006,"audio":0,"image":50,"name":"anima.dricas.ne.jp"},{"video":0,"display_name":"vis-witc.dricas.ne.jp","first_captured":2000,"text":"http
+        vis witc dricas ne jp","snippet":"\u30c8\u30ea\u30b3\u30ed\u30fc\u30eb\u30af\u30e9\u30a4\u30b7\u30b9","webpage":3,"thumb":"vis-witc.dricas.ne.jp","stripped_snippet":"\u30c8\u30ea\u30b3\u30ed\u30fc\u30eb\u30af\u30e9\u30a4\u30b7\u30b9","capture":55,"link":"http://vis-witc.dricas.ne.jp/","last_captured":2006,"audio":0,"image":2,"name":"vis-witc.dricas.ne.jp"},{"video":0,"display_name":"tentama.dricas.ne.jp","first_captured":2001,"text":"http
+        tentama dricas ne jp","snippet":"\u3066\u3093\u305f\u307e -1st sunny side-
+        homepage \u30c8\u30c3\u30d7\u30da\u30fc\u30b8","webpage":2,"thumb":"tentama.dricas.ne.jp","stripped_snippet":"\u3066\u3093\u305f\u307e1stsunnysidehomepage\u30c8\u30c3\u30d7\u30da\u30fc\u30b8","capture":48,"link":"http://tentama.dricas.ne.jp/","last_captured":2006,"audio":0,"image":1,"name":"tentama.dricas.ne.jp"},{"video":0,"display_name":"e-matsuri.dricas.ne.jp","first_captured":2000,"text":"http
+        e matsuri dricas ne jp","snippet":"e\u796d\u308a\u301cgames","webpage":13,"thumb":"e-matsuri.dricas.ne.jp","stripped_snippet":"e\u796d\u308a\u301cgames","capture":66,"link":"http://e-matsuri.dricas.ne.jp/","last_captured":2005,"audio":0,"image":10,"name":"e-matsuri.dricas.ne.jp"},{"video":0,"display_name":"f1.dricas.ne.jp","first_captured":2000,"text":"http
+        f1 dricas ne jp","snippet":"f1 world grand prix for dreamcast","webpage":3,"thumb":"f1.dricas.ne.jp","stripped_snippet":"f1worldgrandprixfordreamcast","capture":109,"link":"http://f1.dricas.ne.jp/","last_captured":2006,"audio":0,"image":9,"name":"f1.dricas.ne.jp"},{"video":0,"display_name":"harusame.dricas.ne.jp","first_captured":2001,"text":"http
+        harusame dricas ne jp","snippet":"\u6625\u96e8\u66dc\u65e5(dc)","webpage":3,"thumb":"harusame.dricas.ne.jp","stripped_snippet":"\u6625\u96e8\u66dc\u65e5dc","capture":124,"link":"http://harusame.dricas.ne.jp/","last_captured":2006,"audio":0,"image":4,"name":"harusame.dricas.ne.jp"},{"video":0,"display_name":"cct.dricas.ne.jp","first_captured":2000,"text":"http
+        cct dricas ne jp","snippet":"cool cool toon","webpage":18,"thumb":"cct.dricas.ne.jp","stripped_snippet":"coolcooltoon","capture":679,"link":"http://cct.dricas.ne.jp/","last_captured":2007,"audio":0,"image":67,"name":"cct.dricas.ne.jp"},{"video":0,"display_name":"onsen.dricas.ne.jp","first_captured":2000,"text":"http
+        onsen dricas ne jp","snippet":"\u3050\u308b\u3050\u308b\u6e29\u6cc9","webpage":223,"thumb":"onsen.dricas.ne.jp","stripped_snippet":"\u3050\u308b\u3050\u308b\u6e29\u6cc9","capture":906,"link":"http://onsen.dricas.ne.jp/","last_captured":2007,"audio":0,"image":125,"name":"onsen.dricas.ne.jp"},{"video":0,"display_name":"fisheyes.dricas.ne.jp","first_captured":2001,"text":"http
+        fisheyes dricas ne jp","snippet":"fish eyes wild","webpage":2,"thumb":"fisheyes.dricas.ne.jp","stripped_snippet":"fisheyeswild","capture":56,"link":"http://fisheyes.dricas.ne.jp/","last_captured":2006,"audio":0,"image":3,"name":"fisheyes.dricas.ne.jp"},{"video":0,"display_name":"dstudio.dricas.ne.jp","first_captured":2001,"text":"http
+        dstudio dricas ne jp","snippet":"\u0083h\u0083\u008a\u0083x\u0083^\u008d\u00ec\u0095i\u008c\u00f0\u008a\u00b7\u0082a\u0082a\u0082r","webpage":12254,"thumb":"dstudio.dricas.ne.jp","stripped_snippet":"\u0083h\u0083\u008a\u0083x\u0083\u008d\u00ec\u0095i\u008c\u00f0\u008a\u00b7\u0082a\u0082a\u0082r","capture":17286,"link":"http://dstudio.dricas.ne.jp/","last_captured":2007,"audio":0,"image":21,"name":"dstudio.dricas.ne.jp"},{"video":0,"display_name":"dabi2.dricas.ne.jp","first_captured":2001,"text":"http
+        dabi2 dricas ne jp","snippet":"\u0083_\u0083r\u0082\u00e2\u0082\u00ad2\u0083z\u0081[\u0083\u0080\u0083y\u0081[\u0083w","webpage":587,"thumb":"dabi2.dricas.ne.jp","stripped_snippet":"\u0083\u0083r\u0082\u00e2\u0082\u00ad2\u0083z\u0081\u0083\u0080\u0083y\u0081\u0083w","capture":1154,"link":"http://dabi2.dricas.ne.jp/","last_captured":2003,"audio":0,"image":129,"name":"dabi2.dricas.ne.jp"},{"video":0,"display_name":"sonic.dricas.ne.jp","first_captured":1999,"text":"sonic
+        dricas ne jp","snippet":"\u0081w\u0083\\\u0083j\u0083b\u0083n\u0083a\u0083h\u0083x\u0083\u0093\u0083`\u0083\u0083\u0081[\u0081x\u0090\u00ea\u0097p\u0082a\u0082a\u0082r","webpage":58713,"thumb":"sonic.dricas.ne.jp","stripped_snippet":"\u0081w\u0083\u0083j\u0083b\u0083n\u0083a\u0083h\u0083x\u0083\u0093\u0083\u0083\u0083\u0081\u0081x\u0090\u00ea\u0097p\u0082a\u0082a\u0082r","capture":166966,"link":"http://sonic.dricas.ne.jp/","last_captured":2008,"audio":0,"image":156,"name":"sonic.dricas.ne.jp"},{"video":0,"display_name":"turb.dricas.ne.jp","first_captured":2000,"text":"dricas
+        page","snippet":"\u0081u\u0090\u00ed\u008d\u0091turb\u0081v","webpage":3,"thumb":"turb.dricas.ne.jp","stripped_snippet":"\u0081u\u0090\u00ed\u008d\u0091turb\u0081v","capture":128,"link":"http://turb.dricas.ne.jp/","last_captured":2007,"audio":0,"image":5,"name":"turb.dricas.ne.jp"},{"video":0,"display_name":"lol.dricas.ne.jp","first_captured":2000,"text":"http
+        lol dricas ne jp","snippet":"\u30bb\u30ac\u516c\u5f0f\u30da\u30fc\u30b8","webpage":1,"thumb":"lol.dricas.ne.jp","stripped_snippet":"\u30bb\u30ac\u516c\u5f0f\u30da\u30fc\u30b8","capture":63,"link":"http://lol.dricas.ne.jp/","last_captured":2007,"audio":0,"image":3,"name":"lol.dricas.ne.jp"},{"video":0,"display_name":"powsmash.dricas.ne.jp","first_captured":2001,"text":"http
+        powsmash dricas ne jp","snippet":"power smash","webpage":29,"thumb":"powsmash.dricas.ne.jp","stripped_snippet":"powersmash","capture":698,"link":"http://powsmash.dricas.ne.jp/","last_captured":2007,"audio":0,"image":60,"name":"powsmash.dricas.ne.jp"},{"video":0,"display_name":"dejiko.dricas.ne.jp","first_captured":2001,"text":"http
+        dejiko dricas ne jp","snippet":"\u0082\u00e5\u0082\u00b6\u0082\u00b1\u0082\u00ec\u0082\u00fc\u0082\u00a2\u0083u\u0083\u0089","webpage":6,"thumb":"dejiko.dricas.ne.jp","stripped_snippet":"\u0082\u00e5\u0082\u00b6\u0082\u00b1\u0082\u00ec\u0082\u00fc\u0082\u00a2\u0083u\u0083\u0089","capture":229,"link":"http://dejiko.dricas.ne.jp/","last_captured":2007,"audio":0,"image":44,"name":"dejiko.dricas.ne.jp"},{"video":0,"display_name":"gg2000.dricas.ne.jp","first_captured":2000,"text":"http
+        gg2000 dricas ne jp","snippet":"http://gg2000.dricas.ne.jp/","webpage":40,"thumb":"gg2000.dricas.ne.jp","stripped_snippet":"httpgg2000dricasnejp","capture":601,"link":"http://gg2000.dricas.ne.jp/","last_captured":2007,"audio":0,"image":44,"name":"gg2000.dricas.ne.jp"},{"video":0,"display_name":"bassrush.dricas.ne.jp","first_captured":2001,"text":"http
+        bassrush dricas ne jp","snippet":"bassrushdream","webpage":35,"thumb":"bassrush.dricas.ne.jp","stripped_snippet":"bassrushdream","capture":809,"link":"http://bassrush.dricas.ne.jp/","last_captured":2006,"audio":0,"image":66,"name":"bassrush.dricas.ne.jp"},{"video":0,"display_name":"driller.dricas.ne.jp","first_captured":2001,"text":"http
+        driller dricas ne jp","snippet":"\u30df\u30b9\u30bf\u30fc\u30c9\u30ea\u30e9\u30fc","webpage":284,"thumb":"driller.dricas.ne.jp","stripped_snippet":"\u30df\u30b9\u30bf\u30fc\u30c9\u30ea\u30e9\u30fc","capture":2111,"link":"http://driller.dricas.ne.jp/","last_captured":2007,"audio":0,"image":137,"name":"driller.dricas.ne.jp"},{"video":0,"display_name":"segagt.dricas.ne.jp","first_captured":2000,"text":"http
+        segagt dricas ne jp","snippet":"sega gt homologation special","webpage":7,"thumb":"segagt.dricas.ne.jp","stripped_snippet":"segagthomologationspecial","capture":215,"link":"http://segagt.dricas.ne.jp/","last_captured":2007,"audio":0,"image":22,"name":"segagt.dricas.ne.jp"},{"video":0,"display_name":"gimmick.dricas.ne.jp","first_captured":2001,"text":"http
+        gimmick dricas ne jp","snippet":"\u5bfe\u6226\u30cd\u30c3\u30c8\u30ae\u30df\u30c3\u30af","webpage":1,"thumb":"gimmick.dricas.ne.jp","stripped_snippet":"\u5bfe\u6226\u30cd\u30c3\u30c8\u30ae\u30df\u30c3\u30af","capture":21,"link":"http://gimmick.dricas.ne.jp/","last_captured":2006,"audio":0,"image":0,"name":"gimmick.dricas.ne.jp"},{"video":0,"display_name":"bus.dricas.ne.jp","first_captured":2000,"text":"http
+        bus dricas ne jp","snippet":"\u6771\u4eac\u30d0\u30b9\u6848\u5185","webpage":21,"thumb":"bus.dricas.ne.jp","stripped_snippet":"\u6771\u4eac\u30d0\u30b9\u6848\u5185","capture":822,"link":"http://bus.dricas.ne.jp/","last_captured":2007,"audio":0,"image":33,"name":"bus.dricas.ne.jp"},{"video":0,"display_name":"sakatoku2.dricas.ne.jp","first_captured":2002,"text":"http
+        sakatoku2 dricas ne jp","snippet":"\u30b5\u30ab\u3064\u304f\u7279\u5927\u53f72
+        j\u30ea\u30fc\u30b0\u30d7\u30ed\u30b5\u30c3\u30ab\u30fc\u30af\u30e9\u30d6\u3092\u3064\u304f\u308d\u3046\uff01","webpage":34642,"thumb":"sakatoku2.dricas.ne.jp","stripped_snippet":"\u30b5\u30ab\u3064\u304f\u7279\u5927\u53f72j\u30ea\u30fc\u30b0\u30d7\u30ed\u30b5\u30c3\u30ab\u30fc\u30af\u30e9\u30d6\u3092\u3064\u304f\u308d\u3046\uff01","capture":42239,"link":"http://sakatoku2.dricas.ne.jp/","last_captured":2007,"audio":0,"image":111,"name":"sakatoku2.dricas.ne.jp"}]'
+  recorded_at: Sat, 31 Jul 2021 19:07:56 GMT
+recorded_with: VCR 6.0.0

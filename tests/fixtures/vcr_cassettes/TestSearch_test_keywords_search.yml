@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://web.archive.org/__wb/search/anchor?q=apple
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - wayback-classic.nfshost.com/0.1 (wayback@jessicastokes.net) Ruby/2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.15.8
+      Date:
+      - Sat, 31 Jul 2021 19:04:49 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '15669'
+      Connection:
+      - keep-alive
+      X-App-Server:
+      - wwwb-app42
+      X-Ts:
+      - '200'
+      X-Tr:
+      - '1482'
+      X-Location:
+      - wb-search
+      X-Cache-Key:
+      - httpsweb.archive.org/__wb/search/anchor?q=appleCA
+      X-Rl:
+      - '0'
+      X-Na:
+      - '0'
+      X-Page-Cache:
+      - HIT
+      X-Nid:
+      - "-"
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Permissions-Policy:
+      - interest-cohort=()
+    body:
+      encoding: UTF-8
+      string: '[{"video":3,"display_name":"www.tuaw.com","first_captured":2004,"text":"apple
+        blog","snippet":"tuaw","webpage":271932,"thumb":"tuaw.com","stripped_snippet":"tuaw","capture":1048451,"link":"http://tuaw.com/","last_captured":2015,"audio":3,"image":3412,"name":"tuaw.com"},{"video":0,"display_name":"apple.stackexchange.com","first_captured":2010,"text":"apple","snippet":"ask
+        different (apple)","webpage":1507803,"thumb":"apple.stackexchange.com","stripped_snippet":"askdifferentapple","capture":2013764,"link":"http://apple.stackexchange.com/","last_captured":2016,"audio":0,"image":99,"name":"apple.stackexchange.com"},{"video":3303,"display_name":"www.apple.com","first_captured":1996,"text":"apple","snippet":"apple","webpage":1289588,"thumb":"apple.com","stripped_snippet":"apple","capture":29086265,"link":"http://apple.com/","last_captured":2016,"audio":150,"image":754343,"name":"apple.com"},{"video":0,"display_name":"www.appleblog.es","first_captured":2007,"text":"apple
+        mac","snippet":"apple mac","webpage":6703,"thumb":"appleblog.es","stripped_snippet":"applemac","capture":75268,"link":"http://appleblog.es/","last_captured":2016,"audio":0,"image":6618,"name":"appleblog.es"},{"video":0,"display_name":"aapl.bloggingstocks.com","first_captured":2006,"text":"apple
+        aapl","snippet":"apple (aapl)","webpage":4102,"thumb":"aapl.bloggingstocks.com","stripped_snippet":"appleaapl","capture":6481,"link":"http://aapl.bloggingstocks.com/","last_captured":2013,"audio":0,"image":3,"name":"aapl.bloggingstocks.com"},{"video":0,"display_name":"www.appleforums.net","first_captured":2004,"text":"apple
+        forum","snippet":"apple forum","webpage":10099,"thumb":"appleforums.net","stripped_snippet":"appleforum","capture":35690,"link":"http://appleforums.net/","last_captured":2016,"audio":0,"image":2656,"name":"appleforums.net"},{"video":0,"display_name":"www.apple-gate.net","first_captured":1999,"text":"apple
+        gate net","snippet":"apple-gate.net","webpage":19928,"thumb":"apple-gate.net","stripped_snippet":"applegatenet","capture":115213,"link":"http://apple-gate.net/","last_captured":2012,"audio":0,"image":2,"name":"apple-gate.net"},{"video":0,"display_name":"www.marksdailyapple.com","first_captured":2007,"text":"mark
+        s daily apple","snippet":"mark''s daily apple","webpage":351317,"thumb":"marksdailyapple.com","stripped_snippet":"marksdailyapple","capture":1443401,"link":"http://marksdailyapple.com/","last_captured":2016,"audio":9,"image":8852,"name":"marksdailyapple.com"},{"video":0,"display_name":"www.apple-gate.com","first_captured":1998,"text":"apple
+        gate com","snippet":"apple-gate.com","webpage":8718,"thumb":"apple-gate.com","stripped_snippet":"applegatecom","capture":44245,"link":"http://apple-gate.com/","last_captured":2012,"audio":0,"image":2,"name":"apple-gate.com"},{"video":24,"display_name":"support.apple.com","first_captured":1996,"text":"apple","snippet":"apple","webpage":326059,"thumb":"support.apple.com","stripped_snippet":"apple","capture":1403745,"link":"http://support.apple.com/","last_captured":2016,"audio":0,"image":35341,"name":"support.apple.com"},{"video":0,"display_name":"www.applesfera.com","first_captured":2006,"text":"apple","snippet":"applesfera","webpage":135887,"thumb":"applesfera.com","stripped_snippet":"applesfera","capture":594193,"link":"http://applesfera.com/","last_captured":2016,"audio":0,"image":1955,"name":"applesfera.com"},{"video":0,"display_name":"www.applehoy.com","first_captured":2008,"text":"apple","snippet":"apple
+        hoy","webpage":3860,"thumb":"applehoy.com","stripped_snippet":"applehoy","capture":32694,"link":"http://applehoy.com/","last_captured":2016,"audio":0,"image":1569,"name":"applehoy.com"},{"video":0,"display_name":"www.fiestavacations.com","first_captured":2001,"text":"vacations
+        apple","snippet":"apple vacations:","webpage":946,"thumb":"fiestavacations.com","stripped_snippet":"applevacations","capture":4127,"link":"http://fiestavacations.com/","last_captured":2016,"audio":0,"image":25,"name":"fiestavacations.com"},{"video":0,"display_name":"www.shabbyapple.com","first_captured":2007,"text":"shabby
+        apple","snippet":"shabby apple","webpage":19935,"thumb":"shabbyapple.com","stripped_snippet":"shabbyapple","capture":110537,"link":"http://shabbyapple.com/","last_captured":2016,"audio":0,"image":9517,"name":"shabbyapple.com"},{"video":0,"display_name":"www.megaapple.cz","first_captured":2010,"text":"apple","snippet":"apple","webpage":479,"thumb":"megaapple.cz","stripped_snippet":"apple","capture":3675,"link":"http://megaapple.cz/","last_captured":2016,"audio":0,"image":311,"name":"megaapple.cz"},{"video":0,"display_name":"apple.copydesk.org","first_captured":2010,"text":"charles
+        apple","snippet":"charles apple","webpage":2668,"thumb":"apple.copydesk.org","stripped_snippet":"charlesapple","capture":21205,"link":"http://apple.copydesk.org/","last_captured":2013,"audio":0,"image":4394,"name":"apple.copydesk.org"},{"video":0,"display_name":"apple.komorkomania.pl","first_captured":2012,"text":"apple","snippet":"apple","webpage":3050,"thumb":"apple.komorkomania.pl","stripped_snippet":"apple","capture":6379,"link":"http://apple.komorkomania.pl/","last_captured":2016,"audio":0,"image":0,"name":"apple.komorkomania.pl"},{"video":0,"display_name":"apple.670149.5278cc-tw.com","first_captured":2010,"text":"apple","snippet":"apple","webpage":1,"thumb":"apple.670149.5278cc-tw.com","stripped_snippet":"apple","capture":7,"link":"http://apple.670149.5278cc-tw.com/","last_captured":2013,"audio":0,"image":0,"name":"apple.670149.5278cc-tw.com"},{"video":0,"display_name":"www.applewallpapers.net","first_captured":2009,"text":"apple
+        wallpapers","snippet":"apple wallpapers","webpage":13789,"thumb":"applewallpapers.net","stripped_snippet":"applewallpapers","capture":86720,"link":"http://applewallpapers.net/","last_captured":2016,"audio":0,"image":3650,"name":"applewallpapers.net"},{"video":0,"display_name":"www.appleadictos.com","first_captured":2010,"text":"apple
+        adictos","snippet":"apple adictos","webpage":1979,"thumb":"appleadictos.com","stripped_snippet":"appleadictos","capture":15044,"link":"http://appleadictos.com/","last_captured":2016,"audio":0,"image":254,"name":"appleadictos.com"},{"video":0,"display_name":"www.mindapples.org","first_captured":2008,"text":"mind
+        apples","snippet":"mind apples","webpage":408,"thumb":"mindapples.org","stripped_snippet":"mindapples","capture":2781,"link":"http://mindapples.org/","last_captured":2016,"audio":2,"image":298,"name":"mindapples.org"},{"video":2,"display_name":"www.melablog.it","first_captured":2005,"text":"apple","snippet":"melablog","webpage":68621,"thumb":"melablog.it","stripped_snippet":"melablog","capture":284703,"link":"http://melablog.it/","last_captured":2016,"audio":0,"image":1078,"name":"melablog.it"},{"video":0,"display_name":"apple.11599.sex520-tw.com","first_captured":2011,"text":"apple","snippet":"apple","webpage":1,"thumb":"apple.11599.sex520-tw.com","stripped_snippet":"apple","capture":9,"link":"http://apple.11599.sex520-tw.com/","last_captured":2012,"audio":0,"image":0,"name":"apple.11599.sex520-tw.com"},{"video":0,"display_name":"apple.670148.av99-tw.net","first_captured":2010,"text":"apple","snippet":"apple","webpage":1,"thumb":"apple.670148.av99-tw.net","stripped_snippet":"apple","capture":9,"link":"http://apple.670148.av99-tw.net/","last_captured":2014,"audio":0,"image":1,"name":"apple.670148.av99-tw.net"},{"video":0,"display_name":"www.affordable-vacations.com","first_captured":2001,"text":"apple
+        vacations","snippet":"apple vacations","webpage":1000,"thumb":"affordable-vacations.com","stripped_snippet":"applevacations","capture":7790,"link":"http://affordable-vacations.com/","last_captured":2006,"audio":0,"image":763,"name":"affordable-vacations.com"},{"video":0,"display_name":"ipods.shoppertron.com","first_captured":2005,"text":"apple
+        ipod","snippet":"apple ipod","webpage":25,"thumb":"ipods.shoppertron.com","stripped_snippet":"appleipod","capture":150,"link":"http://ipods.shoppertron.com/","last_captured":2015,"audio":0,"image":2,"name":"ipods.shoppertron.com"},{"video":0,"display_name":"apple.weblogsinc.com","first_captured":2004,"text":"apple
+        unofficial","snippet":"apple (unofficial)","webpage":3266,"thumb":"apple.weblogsinc.com","stripped_snippet":"appleunofficial","capture":8995,"link":"http://apple.weblogsinc.com/","last_captured":2009,"audio":0,"image":12,"name":"apple.weblogsinc.com"},{"video":0,"display_name":"www.apple-style.com","first_captured":2005,"text":"apple
+        style","snippet":"apple-style","webpage":278,"thumb":"apple-style.com","stripped_snippet":"applestyle","capture":6997,"link":"http://apple-style.com/","last_captured":2016,"audio":0,"image":887,"name":"apple-style.com"},{"video":0,"display_name":"www.appletips.nl","first_captured":2008,"text":"apple
+        tips","snippet":"apple tips","webpage":15106,"thumb":"appletips.nl","stripped_snippet":"appletips","capture":78300,"link":"http://appletips.nl/","last_captured":2016,"audio":0,"image":4721,"name":"appletips.nl"},{"video":0,"display_name":"www.applesencia.com","first_captured":2011,"text":"apple","snippet":"applesencia","webpage":22231,"thumb":"applesencia.com","stripped_snippet":"applesencia","capture":81765,"link":"http://applesencia.com/","last_captured":2016,"audio":0,"image":3826,"name":"applesencia.com"},{"video":0,"display_name":"www.notapc.com.au","first_captured":2009,"text":"apple
+        mac","snippet":"apple mac","webpage":75,"thumb":"notapc.com.au","stripped_snippet":"applemac","capture":135,"link":"http://notapc.com.au/","last_captured":2010,"audio":0,"image":0,"name":"notapc.com.au"},{"video":0,"display_name":"brassyapple.blogspot.com","first_captured":2008,"text":"brassy
+        apple","snippet":"brassy apple","webpage":9073,"thumb":"brassyapple.blogspot.com","stripped_snippet":"brassyapple","capture":49663,"link":"http://brassyapple.blogspot.com/","last_captured":2016,"audio":0,"image":0,"name":"brassyapple.blogspot.com"},{"video":1,"display_name":"www.appleinsider.com","first_captured":1999,"text":"apple
+        insider","snippet":"appleinsider","webpage":98716,"thumb":"appleinsider.com","stripped_snippet":"appleinsider","capture":685478,"link":"http://appleinsider.com/","last_captured":2016,"audio":0,"image":1847,"name":"appleinsider.com"},{"video":0,"display_name":"www.appleballa.com","first_captured":2012,"text":"trending
+        apple news","snippet":"trending apple news","webpage":15700,"thumb":"appleballa.com","stripped_snippet":"trendingapplenews","capture":17573,"link":"http://appleballa.com/","last_captured":2016,"audio":0,"image":21,"name":"appleballa.com"},{"video":53,"display_name":"www.fiona-apple.com","first_captured":1999,"text":"fiona
+        apple","snippet":"fiona apple","webpage":110,"thumb":"fiona-apple.com","stripped_snippet":"fionaapple","capture":6053,"link":"http://fiona-apple.com/","last_captured":2016,"audio":10,"image":248,"name":"fiona-apple.com"},{"video":0,"display_name":"www.applelinkage.com","first_captured":2004,"text":"apple
+        linkage","snippet":"apple linkage","webpage":866,"thumb":"applelinkage.com","stripped_snippet":"applelinkage","capture":77422,"link":"http://applelinkage.com/","last_captured":2016,"audio":0,"image":12700,"name":"applelinkage.com"},{"video":0,"display_name":"countrymela.blogspot.com","first_captured":2008,"text":"country
+        apple","snippet":"country apple","webpage":1132,"thumb":"countrymela.blogspot.com","stripped_snippet":"countryapple","capture":4209,"link":"http://countrymela.blogspot.com/","last_captured":2016,"audio":0,"image":0,"name":"countrymela.blogspot.com"},{"video":0,"display_name":"www.appleiso.com","first_captured":2007,"text":"apple
+        iso","snippet":"apple iso","webpage":6918,"thumb":"appleiso.com","stripped_snippet":"appleiso","capture":10727,"link":"http://appleiso.com/","last_captured":2015,"audio":0,"image":1542,"name":"appleiso.com"},{"video":0,"display_name":"www.applethoughts.com","first_captured":2008,"text":"apple
+        thoughts","snippet":"apple thoughts","webpage":12257,"thumb":"applethoughts.com","stripped_snippet":"applethoughts","capture":72128,"link":"http://applethoughts.com/","last_captured":2016,"audio":0,"image":29,"name":"applethoughts.com"},{"video":0,"display_name":"www.appleexpo.com","first_captured":1999,"text":"apple
+        expo","snippet":"apple expo","webpage":56,"thumb":"appleexpo.com","stripped_snippet":"appleexpo","capture":96,"link":"http://appleexpo.com/","last_captured":2016,"audio":0,"image":6,"name":"appleexpo.com"},{"video":0,"display_name":"theblackapple.typepad.com","first_captured":2006,"text":"the
+        black apple","snippet":"the black apple","webpage":10223,"thumb":"theblackapple.typepad.com","stripped_snippet":"theblackapple","capture":149324,"link":"http://theblackapple.typepad.com/","last_captured":2016,"audio":0,"image":7025,"name":"theblackapple.typepad.com"},{"video":0,"display_name":"www.cosasdeapple.com","first_captured":2011,"text":"cosas
+        de apple","snippet":"cosas de apple","webpage":788,"thumb":"cosasdeapple.com","stripped_snippet":"cosasdeapple","capture":15105,"link":"http://cosasdeapple.com/","last_captured":2016,"audio":0,"image":3061,"name":"cosasdeapple.com"},{"video":0,"display_name":"store.apple.com","first_captured":1998,"text":"apple
+        store","snippet":"apple store","webpage":3844776,"thumb":"store.apple.com","stripped_snippet":"applestore","capture":6026826,"link":"http://store.apple.com/","last_captured":2016,"audio":0,"image":42639,"name":"store.apple.com"},{"video":0,"display_name":"www.demapples.com","first_captured":2004,"text":"dem
+        apples harvard","snippet":"dem apples (harvard)","webpage":86,"thumb":"demapples.com","stripped_snippet":"demapplesharvard","capture":141,"link":"http://demapples.com/","last_captured":2016,"audio":0,"image":8,"name":"demapples.com"},{"video":0,"display_name":"www.appleweblog.com","first_captured":2005,"text":"apple","snippet":"appleweblog","webpage":112686,"thumb":"appleweblog.com","stripped_snippet":"appleweblog","capture":272400,"link":"http://appleweblog.com/","last_captured":2015,"audio":0,"image":9809,"name":"appleweblog.com"},{"video":0,"display_name":"www.sourapplestudio.com","first_captured":2009,"text":"sour
+        apple studio","snippet":"sour apple studio","webpage":469,"thumb":"sourapplestudio.com","stripped_snippet":"sourapplestudio","capture":1243,"link":"http://sourapplestudio.com/","last_captured":2016,"audio":0,"image":70,"name":"sourapplestudio.com"},{"video":0,"display_name":"www.appleporntube.com","first_captured":2014,"text":"apple
+        porn","snippet":"apple porn","webpage":7834,"thumb":"appleporntube.com","stripped_snippet":"appleporn","capture":28834,"link":"http://appleporntube.com/","last_captured":2016,"audio":0,"image":18188,"name":"appleporntube.com"},{"video":0,"display_name":"www.applebinhduong.com","first_captured":2012,"text":"apple
+        b\u00ecnh d\u01b0\u01a1ng","snippet":"apple b\u00ecnh d\u01b0\u01a1ng","webpage":1462,"thumb":"applebinhduong.com","stripped_snippet":"appleb\u00ecnhd\u01b0\u01a1ng","capture":2662,"link":"http://applebinhduong.com/","last_captured":2016,"audio":0,"image":857,"name":"applebinhduong.com"},{"video":0,"display_name":"www.applemania.pl","first_captured":2008,"text":"apple","snippet":"applemania","webpage":15057,"thumb":"applemania.pl","stripped_snippet":"applemania","capture":51707,"link":"http://applemania.pl/","last_captured":2014,"audio":0,"image":1040,"name":"applemania.pl"},{"video":0,"display_name":"www.applestuff.info","first_captured":2004,"text":"apple
+        stuff","snippet":"apple stuff","webpage":80830,"thumb":"applestuff.info","stripped_snippet":"applestuff","capture":92072,"link":"http://applestuff.info/","last_captured":2013,"audio":0,"image":24,"name":"applestuff.info"}]'
+  recorded_at: Sat, 31 Jul 2021 19:04:49 GMT
+recorded_with: VCR 6.0.0
