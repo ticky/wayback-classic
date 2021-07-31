@@ -10,77 +10,71 @@ VCR.configure do |c|
   # c.debug_logger = $stderr
   c.default_cassette_options = {
     record: :once,
-    match_requests_on: [:host, :method, :path]
+    match_requests_on: [:host, :method, :path],
+    allow_unused_http_interactions: false
   }
 end
 
 class TestLookup < CapybaraTestCase
-  def test_keywords_redirect
+  def setup
+    super
     # Force the WebClient cache to always be empty
-    WaybackClassic::WebClient::Cache.stub :get, nil do
-      VCR.use_cassette 'TestLookup#test_keywords_redirect' do
-        visit "/cgi-bin/lookup.cgi?q=apple&utf8=%E2%9C%93"
-        assert_current_path "/cgi-bin/search.cgi?q=apple&utf8=%E2%9C%93"
-      end
+    WaybackClassic::WebClient::Cache.enabled = false
+  end
+
+  def teardown
+    super
+    WaybackClassic::WebClient::Cache.enabled = true
+  end
+
+  def test_keywords_redirect
+    VCR.use_cassette 'TestLookup#test_keywords_redirect' do
+      visit "/cgi-bin/lookup.cgi?q=apple&utf8=%E2%9C%93"
+      assert_current_path "/cgi-bin/search.cgi?q=apple&utf8=%E2%9C%93"
     end
   end
 
   def test_utf8_canary_dreampassport3_redirect
-    # Force the WebClient cache to always be empty
-    WaybackClassic::WebClient::Cache.stub :get, nil do
-      VCR.use_cassette 'TestLookup#test_utf8_canary_dreampassport3_redirect' do
-        visit "/cgi-bin/lookup.cgi?q=dricas&utf8=%EF%BF%BD%13"
-        assert_current_path "/cgi-bin/search.cgi?q=dricas&utf8=%EF%BF%BD%13"
-      end
+    VCR.use_cassette 'TestLookup#test_utf8_canary_dreampassport3_redirect' do
+      visit "/cgi-bin/lookup.cgi?q=dricas&utf8=%EF%BF%BD%13"
+      assert_current_path "/cgi-bin/search.cgi?q=dricas&utf8=%EF%BF%BD%13"
     end
   end
 
   def test_utf8_canary_safari_jis_redirect
-    # Force the WebClient cache to always be empty
-    WaybackClassic::WebClient::Cache.stub :get, nil do
-      VCR.use_cassette 'TestLookup#test_utf8_canary_safari_jis_redirect' do
-        visit "/cgi-bin/lookup.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B"
-        assert_current_path "/cgi-bin/search.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B"
-      end
+    VCR.use_cassette 'TestLookup#test_utf8_canary_safari_jis_redirect' do
+      visit "/cgi-bin/lookup.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B"
+      assert_current_path "/cgi-bin/search.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B"
     end
   end
 
   def test_empty_parameters
-    # Force the WebClient cache to always be empty
-    WaybackClassic::WebClient::Cache.stub :get, nil do
-      VCR.use_cassette 'TestLookup#test_empty_parameters' do
-        visit "/cgi-bin/lookup.cgi?q="
-        assert_current_path "/cgi-bin/lookup.cgi?q="
+    VCR.use_cassette 'TestLookup#test_empty_parameters' do
+      visit "/cgi-bin/lookup.cgi?q="
+      assert_current_path "/cgi-bin/lookup.cgi?q="
 
-        assert_title "Wayback Classic - Error"
-        assert_text "A `q` parameter must be supplied, and no other parameters are accepted"
-      end
+      assert_title "Wayback Classic - Error"
+      assert_text "A `q` parameter must be supplied, and no other parameters are accepted"
     end
   end
 
   def test_no_parameters
-    # Force the WebClient cache to always be empty
-    WaybackClassic::WebClient::Cache.stub :get, nil do
-      VCR.use_cassette 'TestLookup#test_no_parameters' do
-        visit "/cgi-bin/lookup.cgi"
-        assert_current_path "/cgi-bin/lookup.cgi"
+    VCR.use_cassette 'TestLookup#test_no_parameters' do
+      visit "/cgi-bin/lookup.cgi"
+      assert_current_path "/cgi-bin/lookup.cgi"
 
-        assert_title "Wayback Classic - Error"
-        assert_text "A `q` parameter must be supplied, and no other parameters are accepted"
-      end
+      assert_title "Wayback Classic - Error"
+      assert_text "A `q` parameter must be supplied, and no other parameters are accepted"
     end
   end
 
   def test_invalid_parameters
-    # Force the WebClient cache to always be empty
-    WaybackClassic::WebClient::Cache.stub :get, nil do
-      VCR.use_cassette 'TestLookup#test_invalid_parameters' do
-        visit "/cgi-bin/lookup.cgi?q=twitter&utm_medium=evil"
-        assert_current_path "/cgi-bin/lookup.cgi?q=twitter&utm_medium=evil"
+    VCR.use_cassette 'TestLookup#test_invalid_parameters' do
+      visit "/cgi-bin/lookup.cgi?q=twitter&utm_medium=evil"
+      assert_current_path "/cgi-bin/lookup.cgi?q=twitter&utm_medium=evil"
 
-        assert_title "Wayback Classic - Error"
-        assert_text "A `q` parameter must be supplied, and no other parameters are accepted"
-      end
+      assert_title "Wayback Classic - Error"
+      assert_text "A `q` parameter must be supplied, and no other parameters are accepted"
     end
   end
 end

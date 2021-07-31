@@ -16,9 +16,16 @@ module WaybackClassic
     class Cache
       CACHE_VALID_DURATION = 60 * 60 * 24
 
+      class << self
+        attr_accessor :enabled
+      end
+
+      @enabled = true
       @cache_dir = File.join(Dir.tmpdir, "webclient-cache")
 
       def self.get(uri)
+        return unless @enabled
+
         file_name = generate_file_name uri
 
         return unless Dir.exist? file_name
@@ -64,6 +71,8 @@ module WaybackClassic
       end
 
       def self.put(uri, response)
+        return response unless @enabled
+
         file_name = generate_file_name uri
 
         # We'll base cache freshness on the directory's modification time
