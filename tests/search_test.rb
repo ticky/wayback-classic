@@ -1,19 +1,7 @@
 require 'minitest/autorun'
-require 'vcr'
 require 'webmock/minitest'
 require_relative 'capybara_test_case'
 require_relative '../cgi-bin/lib/web_client'
-
-VCR.configure do |c|
-  c.hook_into :webmock
-  c.cassette_library_dir = 'fixtures/vcr_cassettes'
-  # c.debug_logger = $stderr
-  c.default_cassette_options = {
-    record: :once,
-    match_requests_on: %i[host method path],
-    allow_unused_http_interactions: false
-  }
-end
 
 class TestSearch < CapybaraTestCase
   def setup

@@ -1,5 +1,17 @@
 require 'capybara/minitest'
 require 'stringio'
+require 'vcr'
+
+VCR.configure do |c|
+  c.hook_into :webmock
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  # c.debug_logger = $stderr
+  c.default_cassette_options = {
+    record: :once,
+    match_requests_on: %i[host method path],
+    allow_unused_http_interactions: false
+  }
+end
 
 class RackWrapper
   LOADED_MODULES = []
