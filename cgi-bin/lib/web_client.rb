@@ -9,7 +9,7 @@ module WaybackClassic
     USER_AGENT = "wayback-classic.nfshost.com/0.1 (wayback@jessicastokes.net) Ruby/#{RUBY_VERSION}"
 
     def self.open(uri, options = {})
-      options["User-Agent"] = USER_AGENT
+      options['User-Agent'] = USER_AGENT
       Cache.get(uri) || Cache.put(uri, URI.open(uri, options))
     end
 
@@ -21,7 +21,7 @@ module WaybackClassic
       end
 
       @enabled = true
-      @cache_dir = File.join(Dir.tmpdir, "webclient-cache")
+      @cache_dir = File.join(Dir.tmpdir, 'webclient-cache')
 
       def self.get(uri)
         return unless @enabled
@@ -59,7 +59,7 @@ module WaybackClassic
           end
 
           def response.content_type
-            @meta["content-type"]
+            @meta['content-type']
           end
 
           def response.base_uri
@@ -98,8 +98,6 @@ module WaybackClassic
 
         response
       end
-
-      private
 
       def self.generate_file_name(uri)
         File.join @cache_dir, uri.host, Digest::SHA256.hexdigest(uri.to_s)

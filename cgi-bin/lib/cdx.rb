@@ -13,9 +13,7 @@ module WaybackClassic
         hash_row = {}
 
         heading.each_with_index do |item, index|
-          if item == "timestamp"
-            hash_row["datetime"] = DateTime.parse row[index]
-          end
+          hash_row['datetime'] = DateTime.parse row[index] if item == 'timestamp'
 
           hash_row[item] = row[index]
         end

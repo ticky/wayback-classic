@@ -8,9 +8,9 @@ class RackWrapper
     request = Rack::Request.new(env)
 
     case request.path
-    when "/", "/index.html"
-      return [200, {}, File.read("../index.html")]
-    when /\A\/cgi-bin\/(?<name>[A-Za-z0-9]+)\.cgi\z/
+    when '/', '/index.html'
+      [200, {}, File.read('../index.html')]
+    when %r{\A/cgi-bin/(?<name>[A-Za-z0-9]+)\.cgi\z}
       script_name = $~[:name]
 
       unless LOADED_MODULES.include? script_name
@@ -22,7 +22,7 @@ class RackWrapper
         segment = segment.downcase
         segment[0] = segment[0].upcase
         segment
-      end.join ""
+      end.join ''
 
       klass = Object.const_get("WaybackClassic::#{class_name}")
 
@@ -37,7 +37,7 @@ class RackWrapper
     orig_env = ENV.to_h
 
     # Replace ENV with a copy of the one Rack generates, minus any rack-specific portions
-    ENV.replace env.select { |key, value| !key.start_with?("rack.") && !value.is_a?(Array) }
+    ENV.replace env.select { |key, value| !key.start_with?('rack.') && !value.is_a?(Array) }
 
     # Begin to capture stdout so we can manipulate the response data
     captured_stdout = StringIO.new
@@ -56,14 +56,14 @@ class RackWrapper
     headers_str, body = captured_stdout.string.split("\r\n\r\n")
 
     headers = headers_str.split("\r\n").map do |line|
-      line.split(": ", 2)
+      line.split(': ', 2)
     end.to_h
 
     # Pluck out the CGI status header and convert it to an integer
-    status = headers.delete("Status").split(' ', 2).first.to_i
+    status = headers.delete('Status').split(' ', 2).first.to_i
 
     # Return a Rack-compliant response triplet
-    return status, headers, body
+    [status, headers, body]
   ensure
     # Clean up after ourselves, restoring stdout and ENV
     $stdout = orig_stdout
