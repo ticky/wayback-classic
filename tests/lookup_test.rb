@@ -28,28 +28,28 @@ class TestLookup < CapybaraTestCase
   end
 
   def test_keywords_redirect
-    VCR.use_cassette 'TestLookup#test_keywords_redirect' do
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi?q=apple&utf8=%E2%9C%93'
       assert_current_path '/cgi-bin/search.cgi?q=apple&utf8=%E2%9C%93'
     end
   end
 
   def test_utf8_canary_dreampassport3_redirect
-    VCR.use_cassette 'TestLookup#test_utf8_canary_dreampassport3_redirect' do
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi?q=dricas&utf8=%EF%BF%BD%13'
       assert_current_path '/cgi-bin/search.cgi?q=dricas&utf8=%EF%BF%BD%13'
     end
   end
 
   def test_utf8_canary_safari_jis_redirect
-    VCR.use_cassette 'TestLookup#test_utf8_canary_safari_jis_redirect' do
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B'
       assert_current_path '/cgi-bin/search.cgi?q=apple&utf8=%EF%BF%BD%26%2365533%3B'
     end
   end
 
   def test_empty_parameters
-    VCR.use_cassette 'TestLookup#test_empty_parameters' do
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi?q='
       assert_current_path '/cgi-bin/lookup.cgi?q='
 
@@ -59,7 +59,7 @@ class TestLookup < CapybaraTestCase
   end
 
   def test_no_parameters
-    VCR.use_cassette 'TestLookup#test_no_parameters' do
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi'
       assert_current_path '/cgi-bin/lookup.cgi'
 
@@ -69,7 +69,7 @@ class TestLookup < CapybaraTestCase
   end
 
   def test_invalid_parameters
-    VCR.use_cassette 'TestLookup#test_invalid_parameters' do
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi?q=twitter&utm_medium=evil'
       assert_current_path '/cgi-bin/lookup.cgi?q=twitter&utm_medium=evil'
 
