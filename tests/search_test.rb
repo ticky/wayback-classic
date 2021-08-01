@@ -26,7 +26,8 @@ class TestSearch < CapybaraTestCase
       assert_link 'Earliest', href: 'history.cgi?q=http%3A%2F%2Ftuaw.com%2F&date=earliest&utf8=%E2%9C%93'
       assert_link 'Latest', href: 'history.cgi?q=http%3A%2F%2Ftuaw.com%2F&date=latest&utf8=%E2%9C%93'
       assert_text 'tuaw 1,048,451 captures between 2004 and 2015'
-      assert_link 'apple.stackexchange.com', href: 'history.cgi?q=http%3A%2F%2Fapple.stackexchange.com%2F&utf8=%E2%9C%93'
+      assert_link 'apple.stackexchange.com',
+                  href: 'history.cgi?q=http%3A%2F%2Fapple.stackexchange.com%2F&utf8=%E2%9C%93'
       assert_link 'Earliest', href: 'history.cgi?q=http%3A%2F%2Fapple.stackexchange.com%2F&date=earliest&utf8=%E2%9C%93'
       assert_link 'Latest', href: 'history.cgi?q=http%3A%2F%2Fapple.stackexchange.com%2F&date=latest&utf8=%E2%9C%93'
       assert_text 'ask different (apple) 2,013,764 captures between 2010 and 2016'
