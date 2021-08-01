@@ -16,15 +16,19 @@ class Dir
   def self.tmpdir
     tmp = nil
     [ENV['TMPDIR'], ENV['TMP'], ENV['TEMP'], @@systmpdir, '/tmp', '.'].each do |dir|
-      next if !dir
+      next unless dir
 
       dir = File.expand_path(dir)
-      if stat = File.stat(dir) and stat.directory? and stat.writable?
-        tmp = dir
-        break
-      end rescue nil
+      begin
+        if (stat = File.stat(dir)) && stat.directory? && stat.writable?
+          tmp = dir
+          break
+        end
+      rescue StandardError
+        nil
+      end
     end
-    raise ArgumentError, "could not find a temporary directory" unless tmp
+    raise ArgumentError, 'could not find a temporary directory' unless tmp
 
     tmp
   end

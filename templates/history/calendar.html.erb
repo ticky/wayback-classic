@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Wayback Classic - <%= DateTime.strptime(date, "%Y%m").strftime("%B %Y") %> at “<%= ERB::Util.html_escape legacy_encoding.quotify(query) %>”</title>
+    <title>Wayback Classic - <%= DateTime.strptime(date, "%Y%m").strftime("%B %Y") %> at <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></title>
   </head>
   <body background="/images/background@0.5x.gif">
     <h1><a href="/">Wayback Classic</a></h1>

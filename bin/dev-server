@@ -2,11 +2,11 @@
 
 require 'webrick'
 
-WEBrick::HTTPServer.new(Port: ENV.fetch("PORT", 8000),
-                        DocumentRoot: File.expand_path("../..", __FILE__),
+WEBrick::HTTPServer.new(Port: ENV.fetch('PORT', 8000),
+                        DocumentRoot: File.expand_path('..', __dir__),
                         # https://memo88.hatenablog.com/entry/20130309/1362849357, ありがとうございます!
-                        CGIInterpreter: "/usr/bin/ruby -Eutf-8:utf-8").tap do |server|
-  trap "INT" do
+                        CGIInterpreter: '/usr/bin/ruby -Eutf-8:utf-8').tap do |server|
+  trap 'INT' do
     server.shutdown
   end
 

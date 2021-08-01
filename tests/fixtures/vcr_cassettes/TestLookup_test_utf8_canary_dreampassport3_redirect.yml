@@ -1,0 +1,178 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://web.archive.org/__wb/search/host?q=dricas
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - wayback-classic.nfshost.com/0.1 (wayback@jessicastokes.net) Ruby/2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.15.8
+      Date:
+      - Sat, 31 Jul 2021 18:35:21 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '259'
+      Connection:
+      - keep-alive
+      X-App-Server:
+      - wwwb-app42
+      X-Ts:
+      - '200'
+      X-Tr:
+      - '715'
+      X-Location:
+      - wb-search
+      X-Cache-Key:
+      - httpsweb.archive.org/__wb/search/host?q=dricasCA
+      X-Rl:
+      - '0'
+      X-Na:
+      - '0'
+      X-Page-Cache:
+      - MISS
+      X-Nid:
+      - "-"
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Permissions-Policy:
+      - interest-cohort=()
+    body:
+      encoding: UTF-8
+      string: '{"isUrl":false,"hosts":[{"display_name":"cozinhadadrica.blogspot.com"},{"display_name":"dricaartesanatos.blogspot.com"},{"display_name":"eumaisdomesmo.blogspot.com"},{"display_name":"cantinhodasartess.blogspot.com"},{"display_name":"dricam.fotogold.com.br"}]}'
+  recorded_at: Sat, 31 Jul 2021 18:35:21 GMT
+- request:
+    method: get
+    uri: https://web.archive.org/__wb/search/anchor?q=dricas
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - wayback-classic.nfshost.com/0.1 (wayback@jessicastokes.net) Ruby/2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.15.8
+      Date:
+      - Sat, 31 Jul 2021 18:35:22 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '17023'
+      Connection:
+      - keep-alive
+      X-App-Server:
+      - wwwb-app22
+      X-Ts:
+      - '200'
+      X-Tr:
+      - '592'
+      X-Location:
+      - wb-search
+      X-Cache-Key:
+      - httpsweb.archive.org/__wb/search/anchor?q=dricasCA
+      X-Rl:
+      - '0'
+      X-Na:
+      - '0'
+      X-Page-Cache:
+      - MISS
+      X-Nid:
+      - "-"
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Permissions-Policy:
+      - interest-cohort=()
+    body:
+      encoding: UTF-8
+      string: '[{"text":"cozinha da drica","image":0,"thumb":"cozinhadadrica.blogspot.com","display_name":"cozinhadadrica.blogspot.com","webpage":823,"snippet":"cozinha
+        da drica","link":"http://cozinhadadrica.blogspot.com/","video":0,"stripped_snippet":"cozinhadadrica","capture":1025,"first_captured":2008,"audio":0,"name":"cozinhadadrica.blogspot.com","last_captured":2016},{"text":"drica
+        bordados em ponto cruz","image":0,"thumb":"dricaartesanatos.blogspot.com","display_name":"dricaartesanatos.blogspot.com","webpage":20,"snippet":"drica
+        bordados em ponto cruz","link":"http://dricaartesanatos.blogspot.com/","video":0,"stripped_snippet":"dricabordadosempontocruz","capture":31,"first_captured":2009,"audio":0,"name":"dricaartesanatos.blogspot.com","last_captured":2016},{"text":"craft
+        room drica menezes","image":0,"thumb":"eumaisdomesmo.blogspot.com","display_name":"eumaisdomesmo.blogspot.com","webpage":207,"snippet":"craft
+        room - drica menezes","link":"http://eumaisdomesmo.blogspot.com/","video":0,"stripped_snippet":"craftroomdricamenezes","capture":328,"first_captured":2008,"audio":0,"name":"eumaisdomesmo.blogspot.com","last_captured":2016},{"text":"gr\u00e1ficos
+        ponto cruz da drica","image":0,"thumb":"cantinhodasartess.blogspot.com","display_name":"cantinhodasartess.blogspot.com","webpage":94,"snippet":"gr\u00e1ficos
+        ponto cruz da drica","link":"http://cantinhodasartess.blogspot.com/","video":0,"stripped_snippet":"gr\u00e1ficospontocruzdadrica","capture":276,"first_captured":2009,"audio":0,"name":"cantinhodasartess.blogspot.com","last_captured":2016},{"text":"drica","image":0,"thumb":"dricam.fotogold.com.br","display_name":"dricam.fotogold.com.br","webpage":18,"snippet":"drica","link":"http://dricam.fotogold.com.br/","video":0,"stripped_snippet":"drica","capture":31,"first_captured":2004,"audio":0,"name":"dricam.fotogold.com.br","last_captured":2005},{"text":"drica","image":0,"thumb":"hendricacs.fotogold.com.br","display_name":"hendricacs.fotogold.com.br","webpage":2,"snippet":"drica","link":"http://hendricacs.fotogold.com.br/","video":0,"stripped_snippet":"drica","capture":8,"first_captured":2004,"audio":0,"name":"hendricacs.fotogold.com.br","last_captured":2005},{"text":"drica
+        cake","image":0,"thumb":"dricacake.com","display_name":"www.dricacake.com","webpage":2,"snippet":"drica
+        cake","link":"http://dricacake.com/","video":0,"stripped_snippet":"dricacake","capture":25,"first_captured":2010,"audio":0,"name":"dricacake.com","last_captured":2016},{"text":"drica
+        menezes","image":0,"thumb":"dricamenezes.blogspot.com","display_name":"dricamenezes.blogspot.com","webpage":74,"snippet":"drica
+        menezes","link":"http://dricamenezes.blogspot.com/","video":0,"stripped_snippet":"dricamenezes","capture":91,"first_captured":2010,"audio":0,"name":"dricamenezes.blogspot.com","last_captured":2016},{"text":"dricas
+        gaming","image":0,"thumb":"dricasgaming.com","display_name":"www.dricasgaming.com","webpage":6581,"snippet":"dricas
+        gaming","link":"http://dricasgaming.com/","video":0,"stripped_snippet":"dricasgaming","capture":8955,"first_captured":2001,"audio":0,"name":"dricasgaming.com","last_captured":2007},{"text":"drica
+        xinha","image":0,"thumb":"drikkinha.fotogold.com.br","display_name":"drikkinha.fotogold.com.br","webpage":8,"snippet":"drica_xinha","link":"http://drikkinha.fotogold.com.br/","video":0,"stripped_snippet":"dricaxinha","capture":14,"first_captured":2004,"audio":0,"name":"drikkinha.fotogold.com.br","last_captured":2005},{"text":"drica
+        moraes","image":0,"thumb":"dricamoraes.com.br","display_name":"www.dricamoraes.com.br","webpage":36,"snippet":"drica
+        moraes","link":"http://dricamoraes.com.br/","video":0,"stripped_snippet":"dricamoraes","capture":119,"first_captured":2008,"audio":0,"name":"dricamoraes.com.br","last_captured":2011},{"text":"\u2022\u00a4
+        blog drica moraes \u00a4\u2022","image":0,"thumb":"atrizdrica.blogspot.com","display_name":"atrizdrica.blogspot.com","webpage":2,"snippet":"\u2022\u00a4
+        blog drica moraes \u00a4\u2022","link":"http://atrizdrica.blogspot.com/","video":0,"stripped_snippet":"\u2022\u00a4blogdricamoraes\u00a4\u2022","capture":11,"first_captured":2012,"audio":0,"name":"atrizdrica.blogspot.com","last_captured":2016},{"text":"drica
+        croche","image":0,"thumb":"dricacroche.blogspot.com","display_name":"dricacroche.blogspot.com","webpage":3,"snippet":"drica
+        croche","link":"http://dricacroche.blogspot.com/","video":0,"stripped_snippet":"dricacroche","capture":9,"first_captured":2008,"audio":0,"name":"dricacroche.blogspot.com","last_captured":2016},{"text":"fada
+        drica","image":0,"thumb":"fadadrica.fotogold.com.br","display_name":"fadadrica.fotogold.com.br","webpage":1,"snippet":"fada
+        drica","link":"http://fadadrica.fotogold.com.br/","video":0,"stripped_snippet":"fadadrica","capture":8,"first_captured":2004,"audio":0,"name":"fadadrica.fotogold.com.br","last_captured":2005},{"text":"drica
+        artes","image":0,"thumb":"dricartes.blog.terra.com.br","display_name":"dricartes.blog.terra.com.br","webpage":19,"snippet":"drica
+        artes","link":"http://dricartes.blog.terra.com.br/","video":0,"stripped_snippet":"dricaartes","capture":19,"first_captured":2008,"audio":0,"name":"dricartes.blog.terra.com.br","last_captured":2010},{"text":"drica
+        arts","image":0,"thumb":"dricaarts.blogspot.com","display_name":"dricaarts.blogspot.com","webpage":62,"snippet":"drica
+        arts","link":"http://dricaarts.blogspot.com/","video":0,"stripped_snippet":"dricaarts","capture":95,"first_captured":2008,"audio":0,"name":"dricaarts.blogspot.com","last_captured":2016},{"text":"drica
+        s bazar","image":0,"thumb":"dricasbazar.blogspot.com","display_name":"dricasbazar.blogspot.com","webpage":35,"snippet":"drica''s
+        bazar","link":"http://dricasbazar.blogspot.com/","video":0,"stripped_snippet":"dricasbazar","capture":107,"first_captured":2010,"audio":0,"name":"dricasbazar.blogspot.com","last_captured":2016},{"text":"drica
+        art s","image":0,"thumb":"drica-arts.blogspot.com","display_name":"drica-arts.blogspot.com","webpage":3,"snippet":"drica
+        art''s","link":"http://drica-arts.blogspot.com/","video":0,"stripped_snippet":"dricaarts","capture":6,"first_captured":2010,"audio":0,"name":"drica-arts.blogspot.com","last_captured":2016},{"text":"coisas
+        de drica marreco","image":0,"thumb":"adriannemarreca.blogspot.com","display_name":"adriannemarreca.blogspot.com","webpage":41,"snippet":"coisas
+        de drica marreco...","link":"http://adriannemarreca.blogspot.com/","video":0,"stripped_snippet":"coisasdedricamarreco","capture":132,"first_captured":2009,"audio":0,"name":"adriannemarreca.blogspot.com","last_captured":2016},{"text":"cantinho
+        da drica","image":0,"thumb":"minisdadrica.blogspot.com","display_name":"minisdadrica.blogspot.com","webpage":79,"snippet":"cantinho
+        da drica","link":"http://minisdadrica.blogspot.com/","video":0,"stripped_snippet":"cantinhodadrica","capture":85,"first_captured":2013,"audio":0,"name":"minisdadrica.blogspot.com","last_captured":2016},{"text":"blog
+        da drica","image":0,"thumb":"dricamoreiras.blogspot.com","display_name":"dricamoreiras.blogspot.com","webpage":31,"snippet":"blog
+        da drica","link":"http://dricamoreiras.blogspot.com/","video":0,"stripped_snippet":"blogdadrica","capture":50,"first_captured":2011,"audio":0,"name":"dricamoreiras.blogspot.com","last_captured":2016},{"text":"drica
+        moraes cake designer","image":0,"thumb":"dricamoraescakedesigner.blogspot.com","display_name":"dricamoraescakedesigner.blogspot.com","webpage":145,"snippet":"drica
+        moraes cake designer","link":"http://dricamoraescakedesigner.blogspot.com/","video":0,"stripped_snippet":"dricamoraescakedesigner","capture":217,"first_captured":2010,"audio":0,"name":"dricamoraescakedesigner.blogspot.com","last_captured":2016},{"text":"drica
+        e suas artes","image":0,"thumb":"dricaesuasartes.blogspot.com","display_name":"dricaesuasartes.blogspot.com","webpage":3,"snippet":"drica
+        e suas artes","link":"http://dricaesuasartes.blogspot.com/","video":0,"stripped_snippet":"dricaesuasartes","capture":7,"first_captured":2013,"audio":0,"name":"dricaesuasartes.blogspot.com","last_captured":2016},{"text":"drica
+        artes em eva","image":0,"thumb":"dricaartesemeva.blogspot.com","display_name":"dricaartesemeva.blogspot.com","webpage":109,"snippet":"drica
+        artes em eva","link":"http://dricaartesemeva.blogspot.com/","video":0,"stripped_snippet":"dricaartesemeva","capture":453,"first_captured":2010,"audio":0,"name":"dricaartesemeva.blogspot.com","last_captured":2016},{"text":"cantinho
+        da dri e brech\u00f3 da drica","image":0,"thumb":"brechodadrica.blogspot.com","display_name":"brechodadrica.blogspot.com","webpage":233,"snippet":"cantinho
+        da dri e brech\u00f3 da drica","link":"http://brechodadrica.blogspot.com/","video":0,"stripped_snippet":"cantinhodadriebrech\u00f3dadrica","capture":369,"first_captured":2009,"audio":0,"name":"brechodadrica.blogspot.com","last_captured":2016},{"text":"drica
+        bordados em ponto cruz","image":0,"thumb":"dricabordadospx.blogspot.com","display_name":"dricabordadospx.blogspot.com","webpage":2,"snippet":"drica
+        bordados em ponto cruz","link":"http://dricabordadospx.blogspot.com/","video":0,"stripped_snippet":"dricabordadosempontocruz","capture":4,"first_captured":2013,"audio":0,"name":"dricabordadospx.blogspot.com","last_captured":2014},{"text":"drica
+        peccini","image":0,"thumb":"lsbjamais.blogspot.com","display_name":"lsbjamais.blogspot.com","webpage":39,"snippet":"loira
+        sim, burra jamais!!!","link":"http://lsbjamais.blogspot.com/","video":0,"stripped_snippet":"loirasimburrajamais","capture":55,"first_captured":2011,"audio":0,"name":"lsbjamais.blogspot.com","last_captured":2016},{"text":"http
+        pso dricas ne jp","image":50,"thumb":"pso.dricas.ne.jp","display_name":"pso.dricas.ne.jp","webpage":288883,"snippet":"support","link":"http://pso.dricas.ne.jp/","video":0,"stripped_snippet":"support","capture":484066,"first_captured":2000,"audio":0,"name":"pso.dricas.ne.jp","last_captured":2008},{"text":"drica
+        peixoto","image":0,"thumb":"correndonaviagem.blogspot.com","display_name":"correndonaviagem.blogspot.com","webpage":6,"snippet":"let\u00b4s
+        run - correndo na viagem","link":"http://correndonaviagem.blogspot.com/","video":0,"stripped_snippet":"let\u00b4sruncorrendonaviagem","capture":24,"first_captured":2012,"audio":0,"name":"correndonaviagem.blogspot.com","last_captured":2016},{"text":"drica
+        arte com as m\u00e3os um toque de amor","image":0,"thumb":"kikavid.blogspot.com","display_name":"kikavid.blogspot.com","webpage":32,"snippet":"drica
+        arte com as m\u00e3os! um toque de amor.","link":"http://kikavid.blogspot.com/","video":0,"stripped_snippet":"dricaartecomasm\u00e3osumtoquedeamor","capture":63,"first_captured":2009,"audio":0,"name":"kikavid.blogspot.com","last_captured":2016},{"text":"dricas
+        world","image":384,"thumb":"dricasworld.com","display_name":"www.dricasworld.com","webpage":890,"snippet":"dricas
+        world","link":"http://dricasworld.com/","video":0,"stripped_snippet":"dricasworld","capture":3785,"first_captured":1999,"audio":0,"name":"dricasworld.com","last_captured":2011},{"text":"drica","image":1404,"thumb":"debatom.com","display_name":"www.debatom.com","webpage":1447,"snippet":"debatom
+        | por drica martins","link":"http://debatom.com/","video":0,"stripped_snippet":"debatompordricamartins","capture":8524,"first_captured":2012,"audio":0,"name":"debatom.com","last_captured":2016},{"text":"dricas","image":0,"thumb":"deiyoiyo.com","display_name":"www.deiyoiyo.com","webpage":57,"snippet":"dricas","link":"http://deiyoiyo.com/","video":0,"stripped_snippet":"dricas","capture":100,"first_captured":2007,"audio":0,"name":"deiyoiyo.com","last_captured":2014},{"text":"drica","image":0,"thumb":"drica-girl.fotogold.com.br","display_name":"drica-girl.fotogold.com.br","webpage":43,"snippet":"drica-girl","link":"http://drica-girl.fotogold.com.br/","video":0,"stripped_snippet":"dricagirl","capture":65,"first_captured":2004,"audio":0,"name":"drica-girl.fotogold.com.br","last_captured":2005},{"text":"drica","image":0,"thumb":"blogei.bigblogger.com.br","display_name":"blogei.bigblogger.com.br","webpage":43,"snippet":"bloguei-drica","link":"http://blogei.bigblogger.com.br/","video":0,"stripped_snippet":"blogueidrica","capture":56,"first_captured":2006,"audio":0,"name":"blogei.bigblogger.com.br","last_captured":2008},{"text":"drica","image":0,"thumb":"menininha19.gigafoto.com.br","display_name":"menininha19.gigafoto.com.br","webpage":17,"snippet":"drica","link":"http://menininha19.gigafoto.com.br/","video":0,"stripped_snippet":"drica","capture":35,"first_captured":2005,"audio":0,"name":"menininha19.gigafoto.com.br","last_captured":2006},{"text":"drica","image":24,"thumb":"casanova.blogger.com.br","display_name":"casanova.blogger.com.br","webpage":21,"snippet":"drica","link":"http://casanova.blogger.com.br/","video":0,"stripped_snippet":"drica","capture":119,"first_captured":2004,"audio":0,"name":"casanova.blogger.com.br","last_captured":2016},{"text":"drica
+        pinotti","image":1,"thumb":"dricapinotti.com.br","display_name":"www.dricapinotti.com.br","webpage":5,"snippet":"drica
+        pinotti","link":"http://dricapinotti.com.br/","video":0,"stripped_snippet":"dricapinotti","capture":13,"first_captured":2010,"audio":0,"name":"dricapinotti.com.br","last_captured":2011},{"text":"drica
+        peixoto","image":1,"thumb":"correndonaviagem.blogspot.com.br","display_name":"correndonaviagem.blogspot.com.br","webpage":126,"snippet":"correndo
+        na viagem","link":"http://correndonaviagem.blogspot.com.br/","video":0,"stripped_snippet":"correndonaviagem","capture":200,"first_captured":2013,"audio":0,"name":"correndonaviagem.blogspot.com.br","last_captured":2016},{"text":"drica
+        monteiro","image":79,"thumb":"copodevidro.blog.br","display_name":"www.copodevidro.blog.br","webpage":148,"snippet":"drica
+        monteiro","link":"http://copodevidro.blog.br/","video":0,"stripped_snippet":"dricamonteiro","capture":1171,"first_captured":2011,"audio":0,"name":"copodevidro.blog.br","last_captured":2012},{"text":"drica","image":0,"thumb":"drica-asr.fotogold.com.br","display_name":"drica-asr.fotogold.com.br","webpage":19,"snippet":"drica","link":"http://drica-asr.fotogold.com.br/","video":0,"stripped_snippet":"drica","capture":27,"first_captured":2004,"audio":0,"name":"drica-asr.fotogold.com.br","last_captured":2005},{"text":"drica","image":0,"thumb":"drinina.fotogold.com.br","display_name":"drinina.fotogold.com.br","webpage":28,"snippet":"drica","link":"http://drinina.fotogold.com.br/","video":0,"stripped_snippet":"drica","capture":39,"first_captured":2005,"audio":0,"name":"drinina.fotogold.com.br","last_captured":2005},{"text":"drica","image":0,"thumb":"dricatotosa.fotogold.com.br","display_name":"dricatotosa.fotogold.com.br","webpage":9,"snippet":"drica","link":"http://dricatotosa.fotogold.com.br/","video":0,"stripped_snippet":"drica","capture":15,"first_captured":2004,"audio":0,"name":"dricatotosa.fotogold.com.br","last_captured":2005},{"text":"drica","image":2,"thumb":"todavidadrica.fotogold.com.br","display_name":"todavidadrica.fotogold.com.br","webpage":2,"snippet":"drica","link":"http://todavidadrica.fotogold.com.br/","video":0,"stripped_snippet":"drica","capture":9,"first_captured":2005,"audio":0,"name":"todavidadrica.fotogold.com.br","last_captured":2005},{"text":"drica","image":1,"thumb":"drikinhahale.fotogold.com.br","display_name":"drikinhahale.fotogold.com.br","webpage":22,"snippet":"drica","link":"http://drikinhahale.fotogold.com.br/","video":0,"stripped_snippet":"drica","capture":31,"first_captured":2004,"audio":0,"name":"drikinhahale.fotogold.com.br","last_captured":2005},{"text":"drica
+        maeda","image":2,"thumb":"dricamaeda.blog.uol.com.br","display_name":"dricamaeda.blog.uol.com.br","webpage":1,"snippet":"drica
+        maeda","link":"http://dricamaeda.blog.uol.com.br/","video":0,"stripped_snippet":"dricamaeda","capture":3,"first_captured":2004,"audio":0,"name":"dricamaeda.blog.uol.com.br","last_captured":2004},{"text":"drica
+        dias","image":142,"thumb":"dricadias.com","display_name":"www.dricadias.com","webpage":207,"snippet":"drica
+        dias","link":"http://dricadias.com/","video":0,"stripped_snippet":"dricadias","capture":877,"first_captured":2007,"audio":0,"name":"dricadias.com","last_captured":2015},{"text":"dricas","image":3417,"thumb":"dricas.com","display_name":"www.dricas.com","webpage":32394,"snippet":"dricas","link":"http://dricas.com/","video":3,"stripped_snippet":"dricas","capture":83451,"first_captured":1999,"audio":0,"name":"dricas.com","last_captured":2016},{"text":"dricas
+        net","image":55,"thumb":"dricas.net","display_name":"www.dricas.net","webpage":42,"snippet":"dricas.net.","link":"http://dricas.net/","video":0,"stripped_snippet":"dricasnet","capture":263,"first_captured":2001,"audio":0,"name":"dricas.net","last_captured":2015},{"text":"drica","image":0,"thumb":"drikissima.fotolog.fot.br","display_name":"drikissima.fotolog.fot.br","webpage":2,"snippet":"drica","link":"http://drikissima.fotolog.fot.br/","video":0,"stripped_snippet":"drica","capture":2,"first_captured":2004,"audio":0,"name":"drikissima.fotolog.fot.br","last_captured":2004}]'
+  recorded_at: Sat, 31 Jul 2021 18:35:22 GMT
+recorded_with: VCR 6.0.0
