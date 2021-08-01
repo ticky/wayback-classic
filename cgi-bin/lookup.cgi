@@ -36,7 +36,11 @@ module WaybackClassic
           data = JSON.parse response.read
 
           redirect_uri = if data["isUrl"]
-                           uri "/cgi-bin/history.cgi", q: query, utf8: legacy_encoding.utf8
+                           if query.include? '*'
+                             uri "/cgi-bin/sitemap.cgi", q: query, utf8: legacy_encoding.utf8
+                           else
+                             uri "/cgi-bin/history.cgi", q: query, utf8: legacy_encoding.utf8
+                           end
                          else
                            uri "/cgi-bin/search.cgi", q: query, utf8: legacy_encoding.utf8
                          end

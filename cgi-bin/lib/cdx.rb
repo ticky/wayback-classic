@@ -14,6 +14,7 @@ module WaybackClassic
 
         heading.each_with_index do |item, index|
           hash_row['datetime'] = DateTime.parse row[index] if item == 'timestamp'
+          hash_row['enddatetime'] = DateTime.parse row[index] if item == 'endtimestamp'
 
           hash_row[item] = row[index]
         end
