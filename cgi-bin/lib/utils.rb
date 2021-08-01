@@ -18,13 +18,13 @@ def number_formatter(number)
 end
 
 def pluralize(number, singular, plural)
-  counter = if number == 1
+  counter = if number.to_i == 1
               singular
             else
               plural
             end
 
-  "#{number_formatter number} #{counter}"
+  "#{number_formatter number.to_i} #{counter}"
 end
 
 def filesize(size)
