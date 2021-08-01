@@ -24,11 +24,8 @@
         <tr>
           <th>URL</th>
           <th>MIME Type</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Captures</th>
-          <th>Duplicates</th>
-          <th>Uniques</th>
+          <th>Between</th>
+          <th>Capture Stats</th>
         </tr>
       </thead>
       <tbody>
@@ -38,11 +35,14 @@
             <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], utf8: legacy_encoding.utf8) %>"><%= ERB::Util.html_escape cdx_result["original"] %></a>
           </td>
           <td align="center"><small><%= cdx_result["mimetype"] %></small></td>
-          <td align="center"><small><%= cdx_result["datetime"].strftime("%b %e, %Y") %></small></td>
-          <td align="center"><small><%= cdx_result["enddatetime"].strftime("%b %e, %Y") %></small></td>
-          <td align="center"><%= number_formatter cdx_result["groupcount"] %></td>
-          <td align="center"><%= number_formatter cdx_result["groupcount"].to_i - cdx_result["uniqcount"].to_i %></td>
-          <td align="center"><%= number_formatter cdx_result["uniqcount"] %></td>
+          <td align="center"><small><%= cdx_result["datetime"].strftime("%b %e, %Y") %> &amp; <%= cdx_result["enddatetime"].strftime("%b %e, %Y") %></small></td>
+          <td>
+            <%= number_formatter cdx_result["groupcount"] %> captures<br>
+            <small>
+              <%= number_formatter cdx_result["groupcount"].to_i - cdx_result["uniqcount"].to_i %> duplicates<br>
+              <%= number_formatter cdx_result["uniqcount"] %> uniques
+            </small>
+          </td>
         </tr>
       <% end %>
       </tbody>
