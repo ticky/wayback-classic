@@ -1,7 +1,0 @@
-/* Shrink the search images by half on very small screens */
-@media (max-width: 380px) {
-  #search_results img {
-    width: 64px;
-    height: 48px;
-  }
-}

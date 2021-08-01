@@ -1,0 +1,22 @@
+/* Make sure the images look nice and crisp on modern browsers */
+html {
+  font-family: sans-serif;
+  image-rendering: crisp-edges;   /* Firefox doesn't handle pixelated */
+  image-rendering: optimizeSpeed; /* Old browsers don't handle either */
+  image-rendering: pixelated;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    background-image: url(/images/background.gif);
+    background-size: 128px 128px;
+  }
+}
+
+/* Shrink the search images by half on very small screens */
+@media (max-width: 380px) {
+  #search_results img {
+    width: 64px;
+    height: 48px;
+  }
+}
