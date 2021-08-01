@@ -5,17 +5,38 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="A frontend to search and browse the Wayback Machine from old browsers">
-    <title>Wayback Classic</title>
+    <title>Wayback Classic - Search Help</title>
   </head>
   <body background="/images/background@0.5x.gif">
     <h1><a href="/">Wayback Classic</a></h1>
+    <h2>Search Help</h2>
+    <p>Wayback Classic makes use of the Wayback Machine's site search function to allow keyword searching for websites. Currently, the Wayback Machine is capable of finding keywords on the home page of domains, and cannot search the content of other pages.</p>
+    <p>You can also enter a URL to look up directly, in which case you'll jump straight to the index of available capture dates for that URL.</p>
+    <h3>Advanced Search</h3>
+    <p>Currently, the Wayback Machine's advanced search operators are:</p>
+    <table border="1" width="100%">
+      <thead>
+        <tr><th>Operator</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><code>site:</code></strong></td>
+          <td>
+            Search for sites under a subdomain
+            <br><br>
+            For example, <code>site:stanford.edu asian studies</code> searches for Stanford websites related to Asian studies, and <code>site:ne.jp dricas</code> searches for mini-sites for Japanese Dreamcast releases.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Currently, Wayback Classic does not handle the <code>*</code> wildcard operator (for finding archived pages under a URL prefix). Results for searches with this operator won't be shown as expected</p>
+    <hr>
     <form action="/cgi-bin/lookup.cgi" method="get">
       <label>URL or keywords: <input type="text" name="q"></label>
       <input type="hidden" name="utf8" value="✓">
       <input type="submit" value="Look Up">
       <a href="/search-help.html">Search Help</a>
     </form>
-    <p>A frontend for the <a href="//web.archive.org">Wayback Machine</a> which works on old browsers</p>
     <hr>
     <p><small>Wayback Classic retrieves data from The Wayback Machine. The Wayback Machine is run by the <a href="//archive.org">Internet Archive</a>. They do amazing work preserving all sorts of things, including the websites you find here. You should consider <a href="//archive.org/donate/">donating</a> to them! Copyright &copy; 2021 Jessica Stokes. <a href="https://github.com/ticky/wayback-classic">Source code available on GitHub</a></small></p>
     <a href="//web.archive.org/web/19970220020535/http://www.microsoft.com/ie/download/"><img border="0" src="/images/ie.gif" alt="Microsoft Internet Explorer" height="31" width="88"></a>

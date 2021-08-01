@@ -12,6 +12,7 @@
       <label>URL or keywords: <input type="text" name="q" value="<%= ERB::Util.html_escape query %>"></label>
       <input type="hidden" name="utf8" value="✓">
       <input type="submit" value="Look Up">
+      <a href="/search-help.html">Search Help</a>
     </form>
     <hr>
     <h2>Date index for URL <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></h2>
