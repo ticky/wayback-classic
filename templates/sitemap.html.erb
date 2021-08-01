@@ -35,7 +35,6 @@
       <% cdx_results.each do |cdx_result| %>
         <tr>
           <td>
-            <!-- TODO -->
             <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], utf8: legacy_encoding.utf8) %>"><%= ERB::Util.html_escape cdx_result["original"] %></a>
           </td>
           <td align="center"><small><%= cdx_result["mimetype"] %></small></td>
