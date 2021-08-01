@@ -18,7 +18,7 @@
     <hr>
     <h2>Site map for <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></h2>
   <% if cdx_results.any? %>
-    <p><%= number_formatter cdx_results.length %> URLs have been captured for this domain</p>
+    <p><%= pluralize cdx_results.length, "URL has", "URLs have" %> been captured for this query</p>
     <table id="sitemap" border="1" width="100%">
       <thead>
         <tr>
@@ -35,12 +35,12 @@
             <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], utf8: legacy_encoding.utf8) %>"><%= ERB::Util.html_escape cdx_result["original"] %></a>
           </td>
           <td align="center"><small><%= cdx_result["mimetype"] %></small></td>
-          <td align="center"><small><%= cdx_result["datetime"].strftime("%b %e, %Y") %> &amp; <%= cdx_result["enddatetime"].strftime("%b %e, %Y") %></small></td>
+          <td align="center"><small><a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], date: "earliest", utf8: legacy_encoding.utf8) %>"><%= cdx_result["datetime"].strftime("%b %e, %Y") %></a> &amp; <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], date: "latest", utf8: legacy_encoding.utf8) %>"><%= cdx_result["enddatetime"].strftime("%b %e, %Y") %></a></small></td>
           <td>
-            <%= number_formatter cdx_result["groupcount"] %> captures<br>
+            <%= pluralize cdx_result["groupcount"], "capture", "captures" %><br>
             <small>
-              <%= number_formatter cdx_result["groupcount"].to_i - cdx_result["uniqcount"].to_i %> duplicates<br>
-              <%= number_formatter cdx_result["uniqcount"] %> uniques
+              <%= pluralize cdx_result["groupcount"].to_i - cdx_result["uniqcount"].to_i, "duplicate", "duplicates" %><br>
+              <%= pluralize cdx_result["uniqcount"], "unique", "uniques" %>
             </small>
           </td>
         </tr>
