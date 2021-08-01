@@ -19,7 +19,7 @@
     <h2>Site map for <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></h2>
   <% if cdx_results.any? %>
     <p><%= number_formatter cdx_results.length %> URLs have been captured for this domain</p>
-    <table id="search_results" border="1" width="100%">
+    <table id="sitemap" border="1" width="100%">
       <thead>
         <tr>
           <th>URL</th>
