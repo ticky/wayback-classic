@@ -18,7 +18,7 @@
     <hr>
     <h2>Site map for <%= ERB::Util.html_escape legacy_encoding.quotify(query) %></h2>
   <% if cdx_results.any? %>
-    <p><%= pluralize cdx_results.length, "URL has", "URLs have" %> been captured for this query</p>
+    <p><%= pluralize total_count, "URL has", "URLs have" %> been captured for this query</p>
     <table id="sitemap" border="1" width="100%">
       <thead>
         <tr>
@@ -47,6 +47,16 @@
       <% end %>
       </tbody>
     </table>
+    <hr>
+    <center>
+    <% if page > 1 %>
+      <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page - 1, utf8: legacy_encoding.utf8) %>">&larr; Previous Page</a>
+    <% end %>
+      Page <%= number_formatter page %> of <%= number_formatter page_count %>
+    <% if page < page_count %>
+      <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page + 1, utf8: legacy_encoding.utf8) %>">Next Page &rarr;</a>
+    <% end %>
+    </center>
   <% else %>
     <p>No URLs were found for the given wildcard</p>
   <% end %>

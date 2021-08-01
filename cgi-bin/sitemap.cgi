@@ -16,16 +16,19 @@ require_relative 'lib/web_client'
 
 module WaybackClassic
   module Sitemap
+    PAGE_SIZE = 50
+
     def self.run
       legacy_encoding = LegacyClientEncoding.detect
 
       CGI.new.tap do |cgi|
         ErrorReporting.catch_and_respond(cgi) do
-          if cgi.params.keys - ["q"] != [] || cgi.params["q"]&.first.nil? || cgi.params["q"]&.first&.empty?
+          if cgi.params.keys - ["q", "page"] != [] || cgi.params["q"]&.first.nil? || cgi.params["q"]&.first&.empty?
             raise ErrorReporting::BadRequestError.new("A `q` parameter must be supplied, and no other parameters are accepted")
           end
 
           query = cgi.params["q"]&.first
+          page = cgi.params["page"]&.first&.to_i || 1
 
           response = begin
                        WebClient.open uri("http://web.archive.org/cdx/search/cdx",
@@ -40,11 +43,19 @@ module WaybackClassic
 
           cdx_results = CDX.objectify response.read
 
+          total_count = cdx_results.length
+          page_count = (total_count.to_f / PAGE_SIZE).ceil
+
+          cdx_results = cdx_results.slice(page - 1 * PAGE_SIZE, PAGE_SIZE)
+
           cgi.out "type" => "text/html",
                   "charset" => "UTF-8",
                   "status" => "OK" do
             render "sitemap.html",
                    query: query,
+                   total_count: total_count,
+                   page: page || 1,
+                   page_count: page_count,
                    cdx_results: cdx_results,
                    legacy_encoding: legacy_encoding
           end
