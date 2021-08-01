@@ -8,7 +8,7 @@ VCR.configure do |c|
   # c.debug_logger = $stderr
   c.default_cassette_options = {
     record: :once,
-    match_requests_on: %i[host method path],
+    match_requests_on: %i[host method path query],
     allow_unused_http_interactions: false
   }
 end
