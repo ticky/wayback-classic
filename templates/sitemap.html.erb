@@ -21,16 +21,15 @@
   <% if total_count > 0 %>
     <p><%= pluralize total_count, "URL has", "URLs have" %> been captured for this wildcard</p>
     <form action="/cgi-bin/sitemap.cgi" method="get">
-      <p>
-        <input type="hidden" name="q" value="<%= ERB::Util.html_escape query %>">
-        <label>Filter results (by URL or MIME Type): <input type="text" name="filter" value="<%= ERB::Util.html_escape filter %>"></label>
-        <input type="hidden" name="utf8" value="✓">
-        <input type="submit" value="Filter">
-      <% if !filter.nil? && !filter.empty? %>
-        <%= pluralize scoped_count, "match", "matches" %>
-      <% end %>
-    </p>
+      <input type="hidden" name="q" value="<%= ERB::Util.html_escape query %>">
+      <label>Filter results (by URL or MIME Type): <input type="text" name="filter" value="<%= ERB::Util.html_escape filter %>"></label>
+      <input type="hidden" name="utf8" value="✓">
+      <input type="submit" value="Filter">
+    <% if !filter.nil? && !filter.empty? %>
+      <%= pluralize scoped_count, "match", "matches" %>
+    <% end %>
     </form>
+    <br>
   <% if cdx_results.any? %>
     <table id="sitemap" border="1" width="100%">
       <thead>
@@ -47,7 +46,7 @@
             <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], utf8: legacy_encoding.utf8) %>"><%= ERB::Util.html_escape cdx_result["original"] %></a>
           </td>
           <td>
-            <code><%= cdx_result["mimetype"] %></code><br/>
+            <code><%= cdx_result["mimetype"] %></code><br>
             <%= pluralize cdx_result["groupcount"], "capture", "captures" %><br>
             <small>
               <%= pluralize cdx_result["groupcount"].to_i - cdx_result["uniqcount"].to_i, "duplicate", "duplicates" %><br>
