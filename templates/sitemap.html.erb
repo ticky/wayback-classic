@@ -24,9 +24,9 @@
       <label>Filter results (by URL or MIME Type): <input type="text" name="filter" value="<%= ERB::Util.html_escape filter %>"></label>
       <input type="hidden" name="utf8" value="✓">
       <input type="submit" value="Filter">
-      <% if !filter.nil? && !filter.empty? %>
-        <%= pluralize scoped_count, "match", "matches" %>
-      <% end %>
+    <% if !filter.nil? && !filter.empty? %>
+      <%= pluralize scoped_count, "match", "matches" %>
+    <% end %>
     </form>
     <hr>
   <% if cdx_results.any? %>
