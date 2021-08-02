@@ -49,7 +49,7 @@ module WaybackClassic
 
           if filter
             cdx_results = cdx_results.select do |cdx_result|
-              cdx_result["mimetype"].include?(filter) || cdx_result["original"].include?(filter)
+              cdx_result["mimetype"].downcase.include?(filter.downcase) || cdx_result["original"].downcase.include?(filter.downcase)
             end
           end
 
