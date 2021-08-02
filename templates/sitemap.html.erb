@@ -21,15 +21,16 @@
   <% if total_count > 0 %>
     <p><%= pluralize total_count, "URL has", "URLs have" %> been captured for this wildcard</p>
     <form action="/cgi-bin/sitemap.cgi" method="get">
-      <input type="hidden" name="q" value="<%= ERB::Util.html_escape query %>">
-      <label>Filter results (by URL or MIME Type): <input type="text" name="filter" value="<%= ERB::Util.html_escape filter %>"></label>
-      <input type="hidden" name="utf8" value="✓">
-      <input type="submit" value="Filter">
-    <% if !filter.nil? && !filter.empty? %>
-      <%= pluralize scoped_count, "match", "matches" %>
-    <% end %>
+      <p>
+        <input type="hidden" name="q" value="<%= ERB::Util.html_escape query %>">
+        <label>Filter results (by URL or MIME Type): <input type="text" name="filter" value="<%= ERB::Util.html_escape filter %>"></label>
+        <input type="hidden" name="utf8" value="✓">
+        <input type="submit" value="Filter">
+      <% if !filter.nil? && !filter.empty? %>
+        <%= pluralize scoped_count, "match", "matches" %>
+      <% end %>
+    </p>
     </form>
-    <hr>
   <% if cdx_results.any? %>
     <table id="sitemap" border="1" width="100%">
       <thead>
@@ -61,16 +62,17 @@
   <% else %>
     <p>No URLs were found which matched the filter</p>
   <% end %>
-    <hr>
-    <center>
-    <% if page > 1 %>
-      <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page - 1, utf8: legacy_encoding.utf8) %>">Previous Page</a>
-    <% end %>
-      Page <%= number_formatter page %> of <%= number_formatter page_count %>
-    <% if page < page_count %>
-      <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page + 1, utf8: legacy_encoding.utf8) %>">Next Page</a>
-    <% end %>
-    </center>
+    <p>
+      <center>
+      <% if page > 1 %>
+        <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page - 1, utf8: legacy_encoding.utf8) %>">Previous Page</a>
+      <% end %>
+        Page <%= number_formatter page %> of <%= number_formatter page_count %>
+      <% if page < page_count %>
+        <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page + 1, utf8: legacy_encoding.utf8) %>">Next Page</a>
+      <% end %>
+      </center>
+    </p>
   <% else %>
     <p>No URLs were found for the given wildcard</p>
   <% end %>
