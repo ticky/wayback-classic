@@ -47,16 +47,19 @@ module WaybackClassic
           # Hold onto the count of results for the entire thing
           total_count = cdx_results.length
 
+          # Apply MIME Type and URL filters
           if filter
             cdx_results = cdx_results.select do |cdx_result|
               cdx_result["mimetype"].downcase.include?(filter.downcase) || cdx_result["original"].downcase.include?(filter.downcase)
             end
           end
 
+          # Grab the count of matching results, and calculate the page information
           scoped_count = cdx_results.length
           page_count = (scoped_count.to_f / PAGE_SIZE).ceil
           page_count = 1 if page_count == 0
 
+          # Grab this page of results, and go!
           cdx_results = cdx_results.slice((page - 1) * PAGE_SIZE, PAGE_SIZE)
 
           cgi.out "type" => "text/html",
