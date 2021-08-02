@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'webmock/minitest'
 require_relative 'capybara_test_case'
-require_relative '../cgi-bin/lib/web_client'
+require_relative '../cgi-bin/lib/web_client/cache'
 
 class TestLookup < CapybaraTestCase
   def setup
@@ -26,6 +26,13 @@ class TestLookup < CapybaraTestCase
     VCR.use_cassette "#{self.class.name}\##{__callee__}" do
       visit '/cgi-bin/lookup.cgi?q=apple.com&utf8=%E2%9C%93'
       assert_current_path '/cgi-bin/history.cgi?q=apple.com&utf8=%E2%9C%93'
+    end
+  end
+
+  def test_url_wildcard_redirect
+    VCR.use_cassette "#{self.class.name}\##{__callee__}" do
+      visit '/cgi-bin/lookup.cgi?q=dricas.ne.jp%2F*&utf8=%E2%9C%93'
+      assert_current_path '/cgi-bin/sitemap.cgi?q=dricas.ne.jp%2F*&utf8=%E2%9C%93'
     end
   end
 

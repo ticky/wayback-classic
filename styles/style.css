@@ -20,3 +20,7 @@ html {
     height: 48px;
   }
 }
+
+#sitemap td:first-child {
+  word-break: break-word;
+}

@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'webmock/minitest'
 require_relative 'capybara_test_case'
-require_relative '../cgi-bin/lib/web_client'
+require_relative '../cgi-bin/lib/web_client/cache'
 
 class TestHistory < CapybaraTestCase
   def setup

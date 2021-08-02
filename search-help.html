@@ -7,6 +7,7 @@
     <meta name="description" content="A frontend to search and browse the Wayback Machine from old browsers">
     <title>Wayback Classic - Search Help</title>
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <script type="text/javascript" src="/scripts/html5in4.js"></script>
   </head>
   <body background="/images/background@0.5x.gif">
     <h1><a href="/">Wayback Classic</a></h1>
@@ -30,7 +31,9 @@
         </tr>
       </tbody>
     </table>
-    <p>Currently, Wayback Classic does not handle the <code>*</code> wildcard operator (for finding archived pages under a URL prefix). Results for searches with this operator won't be shown as expected</p>
+    <h3>Site Mapping</h3>
+    <p>You can use the <code>*</code> wildcard operator to find archived pages under a URL prefix. When using this operator, you will be given a list of URLs, and given tools to filter further based on the URL and the MIME Type.</p>
+    <p>For example, entering <code>http://www.iespana.es/screenmates/*</code> will find all archived URLs within a website about screen mates or desktop characters, and applying a filter of <code>application/x-executable</code> reveals all the downloadable Windows EXE files which were hosted on that site and are available in the archive.</p>
     <hr>
     <form action="/cgi-bin/lookup.cgi" method="get">
       <label>URL or keywords: <input type="text" name="q"></label>

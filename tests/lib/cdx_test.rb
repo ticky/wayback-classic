@@ -62,6 +62,35 @@ class TestCDX < Minitest::Test
     assert_equal expected, object
   end
 
+  def test_objectify_custom_columns
+    expected = [
+      { 'original' => 'http://www.dricas.ne.jp:80/',
+        'mimetype' => 'text/html',
+        'datetime' => DateTime.iso8601('1999-10-05T20:19:15+00:00'),
+        'timestamp' => '19991005201915',
+        'enddatetime' => DateTime.iso8601('2016-05-25T05:06:27+00:00'),
+        'endtimestamp' => '20160525050627',
+        'groupcount' => '127',
+        'uniqcount' => '11' },
+      { 'original' => 'http://www.dricas.ne.jp:80/atbarai',
+        'mimetype' => 'text/html',
+        'datetime' => DateTime.iso8601('2001-02-19T15:28:51+00:00'),
+        'timestamp' => '20010219152851',
+        'enddatetime' => DateTime.iso8601('2007-08-20T00:40:56+00:00'),
+        'endtimestamp' => '20070820004056',
+        'groupcount' => '19',
+        'uniqcount' => '2' }
+    ]
+
+    object = WaybackClassic::CDX.objectify(
+      [%w[original mimetype timestamp endtimestamp groupcount uniqcount],
+       ['http://www.dricas.ne.jp:80/', 'text/html', '19991005201915', '20160525050627', '127', '11'],
+       ['http://www.dricas.ne.jp:80/atbarai', 'text/html', '20010219152851', '20070820004056', '19', '2']]
+    )
+
+    assert_equal expected, object
+  end
+
   def test_objectify_header_only
     object = WaybackClassic::CDX.objectify(<<~JSON)
       [["urlkey","timestamp","original","mimetype","statuscode","digest","length"]]

@@ -35,20 +35,15 @@ module WaybackClassic
 
           data = JSON.parse response.read
 
-          if data["isUrl"]
-            redirect_uri = uri "/cgi-bin/history.cgi", q: query, utf8: legacy_encoding.utf8
-
-            cgi.out "type" => "text/html",
-                    "charset" => "UTF-8",
-                    "status" => "REDIRECT",
-                    "location" => redirect_uri do
-              render "redirect.html", redirect_uri: redirect_uri
-            end
-
-            return
-          end
-
-          redirect_uri = uri "/cgi-bin/search.cgi", q: query, utf8: legacy_encoding.utf8
+          redirect_uri = if data["isUrl"]
+                           if query.include? '*'
+                             uri "/cgi-bin/sitemap.cgi", q: query, utf8: legacy_encoding.utf8
+                           else
+                             uri "/cgi-bin/history.cgi", q: query, utf8: legacy_encoding.utf8
+                           end
+                         else
+                           uri "/cgi-bin/search.cgi", q: query, utf8: legacy_encoding.utf8
+                         end
 
           cgi.out "type" => "text/html",
                   "charset" => "UTF-8",
