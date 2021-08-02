@@ -34,9 +34,8 @@
       <thead>
         <tr>
           <th>URL</th>
-          <th>MIME Type</th>
+          <th>MIME Type & Stats</th>
           <th>Between</th>
-          <th>Capture Stats</th>
         </tr>
       </thead>
       <tbody>
@@ -45,15 +44,15 @@
           <td>
             <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], utf8: legacy_encoding.utf8) %>"><%= ERB::Util.html_escape cdx_result["original"] %></a>
           </td>
-          <td align="center"><small><%= cdx_result["mimetype"] %></small></td>
-          <td align="center"><small><a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], date: "earliest", utf8: legacy_encoding.utf8) %>"><%= cdx_result["datetime"].strftime("%b %e, %Y") %></a> &amp; <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], date: "latest", utf8: legacy_encoding.utf8) %>"><%= cdx_result["enddatetime"].strftime("%b %e, %Y") %></a></small></td>
           <td>
+            <code><%= cdx_result["mimetype"] %></code><br/>
             <%= pluralize cdx_result["groupcount"], "capture", "captures" %><br>
             <small>
               <%= pluralize cdx_result["groupcount"].to_i - cdx_result["uniqcount"].to_i, "duplicate", "duplicates" %><br>
               <%= pluralize cdx_result["uniqcount"], "unique", "uniques" %>
             </small>
           </td>
+          <td align="center"><small><a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], date: "earliest", utf8: legacy_encoding.utf8) %>"><%= cdx_result["datetime"].strftime("%b %e, %Y") %></a> &amp; <a href="<%= ERB::Util.html_escape uri("history.cgi", q: cdx_result["original"], date: "latest", utf8: legacy_encoding.utf8) %>"><%= cdx_result["enddatetime"].strftime("%b %e, %Y") %></a></small></td>
         </tr>
       <% end %>
       </tbody>
