@@ -36,7 +36,7 @@ module WaybackClassic
                     end
 
             response = begin
-                         WebClient.open uri("http://web.archive.org/cdx/search/cdx",
+                         WebClient.open uri("https://web.archive.org/cdx/search/cdx",
                                             url: query,
                                             output: "json",
                                             limit: limit)
@@ -68,7 +68,7 @@ module WaybackClassic
           end
 
           date_index = begin
-            response = WebClient.open uri("http://web.archive.org/cdx/search/cdx",
+            response = WebClient.open uri("https://web.archive.org/cdx/search/cdx",
                                           url: query,
                                           output: "json",
                                           collapse: "timestamp:6")
@@ -92,7 +92,7 @@ module WaybackClassic
           end
 
           response = begin
-                       WebClient.open uri("http://web.archive.org/cdx/search/cdx",
+                       WebClient.open uri("https://web.archive.org/cdx/search/cdx",
                                           url: query,
                                           output: "json",
                                           from: date,
