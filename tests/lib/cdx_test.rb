@@ -83,9 +83,9 @@ class TestCDX < Minitest::Test
     ]
 
     object = WaybackClassic::CDX.objectify(
-      [["original", "mimetype", "timestamp", "endtimestamp", "groupcount", "uniqcount"],
-      ["http://www.dricas.ne.jp:80/", "text/html", "19991005201915", "20160525050627", "127", "11"],
-      ["http://www.dricas.ne.jp:80/atbarai", "text/html", "20010219152851", "20070820004056", "19", "2"]]
+      [%w[original mimetype timestamp endtimestamp groupcount uniqcount],
+       ['http://www.dricas.ne.jp:80/', 'text/html', '19991005201915', '20160525050627', '127', '11'],
+       ['http://www.dricas.ne.jp:80/atbarai', 'text/html', '20010219152851', '20070820004056', '19', '2']]
     )
 
     assert_equal expected, object
