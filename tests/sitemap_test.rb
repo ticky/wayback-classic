@@ -132,7 +132,7 @@ class TestSitemap < CapybaraTestCase
       assert_current_path '/cgi-bin/sitemap.cgi?q=&page='
 
       assert_title 'Wayback Classic - Error'
-      assert_text 'A `q` parameter must be supplied, and no other parameters are accepted'
+      assert_text 'A `q` parameter must be supplied, and `page` and `filter` parameters are optional'
     end
   end
 
@@ -142,7 +142,7 @@ class TestSitemap < CapybaraTestCase
       assert_current_path '/cgi-bin/sitemap.cgi'
 
       assert_title 'Wayback Classic - Error'
-      assert_text 'A `q` parameter must be supplied, and no other parameters are accepted'
+      assert_text 'A `q` parameter must be supplied, and `page` and `filter` parameters are optional'
     end
   end
 
@@ -152,7 +152,7 @@ class TestSitemap < CapybaraTestCase
       assert_current_path '/cgi-bin/sitemap.cgi?q=twitter.com&utm_medium=evil'
 
       assert_title 'Wayback Classic - Error'
-      assert_text 'A `q` parameter must be supplied, and no other parameters are accepted'
+      assert_text 'A `q` parameter must be supplied, and `page` and `filter` parameters are optional'
     end
   end
 end
