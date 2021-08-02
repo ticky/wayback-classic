@@ -23,12 +23,13 @@ module WaybackClassic
 
       CGI.new.tap do |cgi|
         ErrorReporting.catch_and_respond(cgi) do
-          if cgi.params.keys - ["q", "page"] != [] || cgi.params["q"]&.first.nil? || cgi.params["q"]&.first&.empty?
+          if cgi.params.keys - ["q", "page", "filter"] != [] || cgi.params["q"]&.first.nil? || cgi.params["q"]&.first&.empty?
             raise ErrorReporting::BadRequestError.new("A `q` parameter must be supplied, and no other parameters are accepted")
           end
 
           query = cgi.params["q"]&.first
           page = cgi.params["page"]&.first&.to_i || 1
+          filter = cgi.params["filter"]&.first
 
           response = begin
                        WebClient.open uri("http://web.archive.org/cdx/search/cdx",
@@ -43,17 +44,29 @@ module WaybackClassic
 
           cdx_results = CDX.objectify response.read
 
+          # Hold onto the count of results for the entire thing
           total_count = cdx_results.length
-          page_count = (total_count.to_f / PAGE_SIZE).ceil
 
-          cdx_results = cdx_results.slice(page - 1 * PAGE_SIZE, PAGE_SIZE)
+          if filter
+            cdx_results = cdx_results.select do |cdx_result|
+              cdx_result["mimetype"].include?(filter) || cdx_result["original"].include?(filter)
+            end
+          end
+
+          scoped_count = cdx_results.length
+          page_count = (scoped_count.to_f / PAGE_SIZE).ceil
+          page_count = 1 if page_count == 0
+
+          cdx_results = cdx_results.slice((page - 1) * PAGE_SIZE, PAGE_SIZE)
 
           cgi.out "type" => "text/html",
                   "charset" => "UTF-8",
                   "status" => "OK" do
             render "sitemap.html",
                    query: query,
+                   filter: filter,
                    total_count: total_count,
+                   scoped_count: scoped_count,
                    page: page || 1,
                    page_count: page_count,
                    cdx_results: cdx_results,
