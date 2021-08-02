@@ -65,11 +65,15 @@
     <p>
       <center>
       <% if page > 1 %>
-        <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page - 1, utf8: legacy_encoding.utf8) %>">Previous Page</a>
+        <% params = { q: query } %>
+        <% params[:filter] = filter if filter %>
+        <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", **params, page: page - 1, utf8: legacy_encoding.utf8) %>">Previous Page</a>
       <% end %>
         Page <%= number_formatter page %> of <%= number_formatter page_count %>
       <% if page < page_count %>
-        <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", q: query, page: page + 1, utf8: legacy_encoding.utf8) %>">Next Page</a>
+        <% params = { q: query } %>
+        <% params[:filter] = filter if filter %>
+        <a href="<%= ERB::Util.html_escape uri("sitemap.cgi", **params, page: page + 1, utf8: legacy_encoding.utf8) %>">Next Page</a>
       <% end %>
       </center>
     </p>
