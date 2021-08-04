@@ -2,4 +2,4 @@
 
 require_relative '../cgi-bin/lib/web_client/cache'
 
-WaybackClassic::WebClient::Cache.clean
+WaybackClassic::WebClient::Cache.clean(verbose: true)

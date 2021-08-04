@@ -95,9 +95,16 @@ module WaybackClassic
         File.join @cache_dir, uri.host, Digest::SHA256.hexdigest(uri.to_s)
       end
 
-      def self.clean
+      def self.clean(verbose: false)
+        delete_before = Time.now - CACHE_VALID_DURATION
+        puts "Deleting files older than #{delete_before}" if verbose
+
         Dir.glob(File.join(@cache_dir, '*', '*')).each do |dir_name|
-          FileUtils.rm_r dir_name if File.mtime(dir_name) < Time.now - CACHE_VALID_DURATION
+          mtime = File.mtime(dir_name)
+          delete = mtime < delete_before
+          puts "\"#{dir_name}\" (#{mtime}): #{delete ? 'DELETE' : 'Keep'}" if verbose
+
+          FileUtils.rm_r dir_name if delete
         end
       end
     end
