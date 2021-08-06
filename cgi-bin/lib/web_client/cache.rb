@@ -97,7 +97,7 @@ module WaybackClassic
 
       def self.clean(verbose: false)
         delete_before = Time.now - CACHE_VALID_DURATION
-        puts "Deleting files older than #{delete_before}" if verbose
+        puts "Deleting files older than #{delete_before} in #{@cache_dir}" if verbose
 
         Dir.glob(File.join(@cache_dir, '*', '*')).each do |dir_name|
           mtime = File.mtime(dir_name)

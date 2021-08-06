@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
 require_relative '../cgi-bin/lib/web_client/cache'
+require_relative '../cgi-bin/lib/permit_world_writable_temp' if ENV["FORCE_WORLD_WRITABLE_TEMP"] == "true"
 
 WaybackClassic::WebClient::Cache.clean(verbose: true)
