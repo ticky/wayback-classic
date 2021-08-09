@@ -30,7 +30,10 @@ module WaybackClassic
 
           if date == "latest" || date == "earliest"
             limit = if date == "latest"
-                      -1
+                      # The Wayback Machine's CDX API seems to have a bug
+                      # where retrieving the last 1 returns 0,
+                      # but the last 2 returns 2, so, we do the latter
+                      -2
                     elsif date == "earliest"
                       1
                     end
@@ -41,7 +44,7 @@ module WaybackClassic
                                             output: "json",
                                             limit: limit)
                        rescue OpenURI::HTTPError
-                         raise ErrorReporting::ServerError.new("Couldn't #{date} snapshot for this URL")
+                         raise ErrorReporting::ServerError.new("Couldn't retrieve #{date} snapshot for this URL")
                        end
 
             cdx_results = CDX.objectify response.read
@@ -54,7 +57,7 @@ module WaybackClassic
                          (ENV["REQUEST_SCHEME"] || ENV["REQUEST_URI"] || "http").split(":").first
                        end
 
-              redirect_uri = "#{scheme}://web.archive.org/web/#{cdx_results.first["timestamp"]}if_/#{cdx_results.first["original"]}"
+              redirect_uri = "#{scheme}://web.archive.org/web/#{cdx_results.last["timestamp"]}if_/#{cdx_results.last["original"]}"
 
               cgi.out "type" => "text/html",
                       "charset" => "UTF-8",
@@ -64,6 +67,8 @@ module WaybackClassic
               end
 
               return
+            else
+              raise ErrorReporting::ServerError.new("Couldn't retrieve #{date} snapshot for this URL")
             end
           end
 
