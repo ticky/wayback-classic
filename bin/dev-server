@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require_relative '../cgi-bin/lib/web_client/cache'
 require 'webrick'
 
 WEBrick::HTTPServer.new(Port: ENV.fetch('PORT', 8000),
@@ -9,6 +10,8 @@ WEBrick::HTTPServer.new(Port: ENV.fetch('PORT', 8000),
   trap 'INT' do
     server.shutdown
   end
+
+  server.logger.info "WaybackClassic::WebClient::Cache.cache_dir = \"#{WaybackClassic::WebClient::Cache.cache_dir}\""
 
   server.start
 end
