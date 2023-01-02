@@ -35,6 +35,10 @@ module WaybackClassic
 
           data = JSON.parse response.read
 
+          if data["excluded"]
+            raise ErrorReporting::HandledError.new("This URL has been excluded from the Wayback Machine")
+          end
+
           redirect_uri = if data["isUrl"]
                            if query.include? '*'
                              uri "/cgi-bin/sitemap.cgi", q: query, utf8: legacy_encoding.utf8

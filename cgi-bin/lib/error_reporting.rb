@@ -6,12 +6,18 @@ module WaybackClassic
 
     class ServerError < ReportableError; end
 
-    class BadRequestError < ReportableError; end
+    class HandledError < ReportableError; end
+
+    class ForbiddenError < HandledError; end
+
+    class NotFoundError < HandledError; end
+
+    class BadRequestError < HandledError; end
 
     def self.catch_exceptions
       yield
     rescue StandardError => error
-      unless error.class <= BadRequestError
+      unless error.class <= HandledError
         warn JSON.dump(error: {
                          class: error.class.name,
                          message: error.message,
@@ -30,7 +36,11 @@ module WaybackClassic
 
     def self.catch_and_respond(cgi, &block)
       if error = catch_exceptions(&block)
-        status = if error.class <= BadRequestError
+        status = if error.class <= NotFoundError
+                   'NOT_FOUND'
+                 elsif error.class <= ForbiddenError
+                   'FORBIDDEN'
+                 elsif error.class <= HandledError
                    'BAD_REQUEST'
                  else
                    'SERVER_ERROR'
