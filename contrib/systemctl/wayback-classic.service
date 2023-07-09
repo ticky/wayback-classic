@@ -7,6 +7,7 @@ Type=simple
 User=trastos
 WorkingDirectory=/home/trastos/workspace/wayback-classic
 # Environment="HTTPS='on'"
+# Environment="PORT='3336'"
 ExecStart=bundle exec bin/dev-server
 Restart=always
 

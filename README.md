@@ -20,7 +20,31 @@ This is built on both the [CDX API](https://github.com/internetarchive/wayback/t
 
 A basic, WEBrick-based development server script is included at `bin/dev-server`. It defaults to `localhost:8000`, but the port can be overridden by setting a `PORT` environment variable.
 
-### Testing
+You can run this with either of:
+
+```
+./bin/dev-server
+```
+
+or
+
+```
+bundle exec bin/dev-server
+```
+
+## Deployment
+
+For your convenience, there are some scripts under the contrib/ folder: 
+
+- a script to install a recent version of ruby
+- a systemctl service file to run this server on startup
+- nginx site file that serve this to an external domain. 
+
+these should allow you to run a version of this tool on your site, but will require tweaking. For example, take care to configure the port correctly.
+
+To enable https, you could start with the http nginx file, then run `sudo certbot --nginx -d wayback.yourdomain.com`. Then re-run the server with the `HTTPS='on'` environment variable, either manually or in the systemctl service.
+
+## Testing
 
 While the root directory of this repository is intended to map directly to the root htdocs directory of a server, with no dependencies other than the Ruby standard library, a `Gemfile` is provided under the `tests` directory which contains dependencies for testing.
 
