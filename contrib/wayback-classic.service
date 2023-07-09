@@ -1,0 +1,15 @@
+[Unit]
+Description=Wayback Classic
+After=network.target
+
+[Service]
+Type=simple
+User=trastos
+WorkingDirectory=/home/trastos/workspace/wayback-classic
+# Environment="HTTPS='on'"
+ExecStart=bundle exec bin/dev-server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
