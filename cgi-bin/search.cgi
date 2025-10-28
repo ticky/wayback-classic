@@ -44,7 +44,7 @@ module WaybackClassic
           query = cgi.params["q"].first
 
           response = begin
-                       WebClient.open uri("https://web.archive.org/__wb/search/anchor", q: query)
+                       WebClient.open uri("https://web.archive.org/__wb/search/anchor", q: query), "Referer" => "https://web.archive.org"
                      rescue OpenURI::HTTPError
                        raise ErrorReporting::ServerError.new("Couldn't retrieve results for these keywords")
                      end
